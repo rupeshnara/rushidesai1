@@ -5,6 +5,7 @@ http://docs.oracle.com/javase/tutorial/java/concepts/
 ##IDE
 https://www.jetbrains.com/idea/download/#section=windows
 
+Problem : How do we share code?
 ##Version Control systems: (Share code)
 ####Subversion
 ####CVS
@@ -58,4 +59,19 @@ Parent-
 
 
 Packaged into one artifact
+
+War -> Collection of jars
+       1. UI jar -> Collection of .class files 
+       2. DB Jar
+       3. Day1 jar
+       4. Day2 jar
+
+
+Test.jar -> 1. Test.class
+            2. TestChild.class
+            
+
+
+
+
 

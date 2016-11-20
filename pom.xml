@@ -5,6 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- The Basics -->
+    <!--Address of your project(jar file) on server-->
     <groupId>training.java.core</groupId>
     <artifactId>training-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -12,5 +13,6 @@
 
     <modules>
         <module>Day1</module>
+        <module>Day2</module>
     </modules>
 </project>
