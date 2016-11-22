@@ -9,6 +9,20 @@ import variable.scope.Student;
  */
 public class Test {
 
+    //Variables: Understand two things to completely understand Java language
+    //1. Scope of variables
+    //2. Lifetime of variables
+    /*
+     * Scope:
+     *      1. Things you can access.
+     *      2. Things you can 'see'
+     */
+
+    /*
+     * Lifetime of a variable:
+     * 1. How long will that variable live in memory.
+     */
+
     /**
      * OOP's : Object Oriented programming.
      * <p>
@@ -41,7 +55,6 @@ public class Test {
         System.out.println(p.getX());
         System.out.println(p.getY());
     }
-
 
     /**
      * Memory representation:

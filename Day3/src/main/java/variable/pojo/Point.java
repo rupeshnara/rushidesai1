@@ -3,7 +3,7 @@ package variable.pojo;
 /**
  * Created by desair4 on 11/21/2016.
  * <p>
- * Plain old java objects
+ * Plain old java objects -> focuses on encapsulation
  */
 public class Point {
     private String x;
