@@ -94,13 +94,16 @@ Started with
 
 2. Arrays -> Allows us to define multiple variables of SAME TYPE with one line of code
 
+    1. Need contagious memory location.
+            Contrast with LinkedList
+
 ``` 
     Integer[] i = new Integer[3]; //Creates 3 int variables in one line of code
     /**
      * Memory representation :
-     * int i[0]
-     * int i[1]
-     * int i[2]
+     * 1000 int i[0]  
+     * 1001 int i[1]
+     * 1002 int i[2]
      */
 ```
 
@@ -126,13 +129,13 @@ Expected Output:
 
 3. Custom Data types : 
 
+Only exist in C/C++. Java doesnt have it.
 structure: It is the next step to array : Allows us to create more variables with one line code of Same or DIFFERENT DataTypes. 
-            We provide 'Template' of how variable should look in memory
+            We provide 'Template' of how variable should look in memory.
 
 Pseudo code to achieve same task as we achieved by arrays via struct.
 ```
     struct Student {
-
         int marksMath;        //1 unit
         int marksEnglish;    //1 unit
         int marksSocial;
@@ -142,6 +145,8 @@ Pseudo code to achieve same task as we achieved by arrays via struct.
         //1 var of student = 4 units
     }
 
+       int       i          =  10;
+       int[]     arrayI     =  10;
     Student[] studentsArray = new Student[10];    //40
 
 
@@ -245,6 +250,9 @@ studentsArray[3]
             }
         }
     }
+    
+    //Student studentsFormClass1 = new Student();
+    //Student studentsFormClass2 = new Student();
 /**
   * Memory representation: 
   *  
