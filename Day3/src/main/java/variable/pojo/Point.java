@@ -6,8 +6,11 @@ package variable.pojo;
  * Plain old java objects -> focuses on encapsulation
  */
 public class Point {
+    //instance variables
     private String x;
     private Integer y;  //compare with int y
+    private String password;
+    private int distance;
 
 /*    String restrictAccessOfX() {
         //Check some condtion
@@ -42,5 +45,9 @@ public class Point {
 
     public void setY(Integer y) {
         this.y = y;
+    }
+
+    public void setDistance(int i) {
+        distance = i;
     }
 }
