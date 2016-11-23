@@ -126,6 +126,10 @@ public class Main {
         return sum;
     }
 
+    static void print(int i) {
+        System.out.println(i);
+    }
+
     private static boolean isGT(int i, int i1) {
         return i < i1;
 
