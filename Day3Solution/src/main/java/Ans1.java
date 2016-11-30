@@ -12,7 +12,7 @@ public class Ans1 {
     }
 
     // 1.c prints all numbers from 1 to 100
-   static void printAll(int[] a) {
+    static void printAll(int[] a) {
         int[] array = new int[100];
         for (int i = 0; i <= array.length; i++) {
 
@@ -29,7 +29,6 @@ public class Ans1 {
 
             array[i] = i + 1;
             if (array[i] % 2 == 1) {
-
                 System.out.println(array[i]);
             }
         }
@@ -43,7 +42,6 @@ public class Ans1 {
 
             array[i] = i + 1;
             if (array[i] % 2 == 0) {
-
                 System.out.println(array[i]);
             }
         }
@@ -59,17 +57,21 @@ public class Ans1 {
             array[i] = i + 1;
 
             // prints odd since doPrint is false here
-            if (!doPrint)
+            if (!doPrint) {
+
+                //printOdd(a);
                 if (array[i] % 2 == 1) {
 
                     System.out.println(array[i]);
                 }
 
-            // prints even since doPrint becomes true here
-            if(doPrint) {
-                if (array[i] % 2 == 0) {
+                // prints even since doPrint becomes true here
+                if (doPrint) {
 
-                    System.out.println(array[i]);
+                    //printEven(a);
+                    if (array[i] % 2 == 0) {
+                        System.out.println(array[i]);
+                    }
                 }
             }
         }
