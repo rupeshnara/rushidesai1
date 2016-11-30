@@ -5,7 +5,7 @@ package variable.scope;
  */
 public class Friend {
 
-    //Access modifiers
+    //Access modifiers  -> Scope of variables
     String iceCream;//Default scope : Can only be seen/accessed in that class and in that package/folder
     public String movies;   //open to everything.
     private String password = "dummy";// can access only inside this class
