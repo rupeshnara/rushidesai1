@@ -15,5 +15,6 @@
         <module>Day1</module>
         <module>Day2</module>
         <module>Day3</module>
+        <module>Day3Solution</module>
     </modules>
 </project>
