@@ -29,7 +29,7 @@ public class Main {
         *
         * ------------stack1-----------------
         * //main's stack
-        *  lf = 1000
+        *  lf = 1000    //points to physical address insider heap
         *  anotherLf = 1000
         *  newLf = 2000
         *  3000 a = 100
@@ -100,7 +100,7 @@ public class Main {
         //------------------------------------------------
 
         //---------------------Back to lifeTime discussion
-        Lifetime newLf = lf.getInstance();
+        Lifetime newLf = lf.getInstance();  // it would be nice if I dont have to use an object ot call this method.
 
 
         //-----------------Digression
@@ -124,19 +124,19 @@ public class Main {
         //---------------How to change lifetime of variable-------------
         //1. lifetime of variable is tied to where it's declared
         //2. lifetime of instance variables i.e. variables declared at class level is tied to lifetime of the object.
-        //3. lifetime of object is dictated by Golden Rule 1.
+        //3. lifetime of object is dictated by Golden Rule 1.   //Golden Rule 1: The variables lives as long as someone has reference to that variable.
         //4. lifetime of instance variables which are 'static' is tied to lifetime of class in which they are declared.
-        //      (For most of the cases this is lifetime enitre program. )
+        //      (For most of the cases this is lifetime entire program. )
 
 
         /*
-        *           Memory respresentation
+        *           Memory representation
         *
-        *           Lifetime
+        *           class Lifetime
         * -----------------------------------------------------------
-        *                   static variables
+        *             static variables
         *                  count
-        *
+        *       1 , 2, 3,
         * -----------------------------------------------------
         *           lf1                |            lf2
         *        age                   |           age
@@ -154,5 +154,21 @@ public class Main {
         //-----------------------
 
         System.out.println("Main end");
+
+        anotherLf.createTempInstance(); //I am calling this createTempInstance method on object even though that method never uses data of that object
+
+
+        //toString is called on diff objects and hence each toString uses data specific to that object thus giving diffrent strings back
+        System.out.println(newLf);      //sout( anotherLf.toString())
+        System.out.println(lf);             //sout (lf.toString())
+
+        //if life cycle of 'count' which is static is tied to class and no to object, then do we need object to access count?
+        //Ans: no we shouldn't
+        System.out.println("static variables : access by class ");
+        System.out.println(Lifetime.count);
+
+        //same notion extend to methods. If method doesn't use data of objects, then we can declare them 'static'. And static methods can be accessed by class
+        Lifetime.getInstance();     //Lifetime lf = new Lifetime();
+
     }
 }
