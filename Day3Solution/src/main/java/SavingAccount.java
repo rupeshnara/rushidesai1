@@ -33,10 +33,10 @@ public class SavingAccount {
         this.interestRate = interestRate;
     }
 
-     public void credit(double amount){
+    public void credit(double amount){
 
         if (amount <= 0){
-            System.out.println("Please ensure the amount to be deposited is not negative");
+            System.out.println("Please ensure the amount to be deposited is not negative or zero");
         }
         else {
             this.initialBalance = this.initialBalance + amount;

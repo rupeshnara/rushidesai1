@@ -39,12 +39,12 @@ public class CheckingAccount {
 
     void debit(double amount){
 
-        if (this.initialBalance < amount){
+        if (this.initialBalance < amount + transactionFees){
             System.out.println("Your balance is less than the requested amount");
         }
 
         else {
-            this.initialBalance = this.initialBalance - amount;
+            this.initialBalance = this.initialBalance - amount - transactionFees;
         }
     }
 
