@@ -14,7 +14,7 @@ public class SavingsAccount {
     public void credit(double amount) {
         if (amount > 0 && amount != 0) {
 
-            System.out.println(initialBalance = initialBalance + amount);
+            System.out.println(initialBalance = (initialBalance + amount));
 
         } else {
             System.out.println("Please ensure the amount to be deposited is not negative: ");
