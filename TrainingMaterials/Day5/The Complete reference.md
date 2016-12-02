@@ -30,6 +30,13 @@ Topics done:
 7. Arrays revisited
 8. Introducing nested and inner classes
 
+#####Chapter 8:
+Topics left:
+1. Dynamic Method dispatch
+2. Using abstract classes.
+3. using final with inheritance.
+
 #####Chapter 10:
 Topics done:
 1. Exception fundamentals
+
