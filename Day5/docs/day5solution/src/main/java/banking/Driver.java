@@ -6,11 +6,11 @@ package banking;
 public class Driver {
     public static void main(String[] args) {
 
-        CheckingAccount ch1 = new CheckingAccount(500);
-        CheckingAccount ch2 = new CheckingAccount(1000);
-        CheckingAccount ch3 = new CheckingAccount(1500);
-        CheckingAccount ch4 = new CheckingAccount(2000);
-        CheckingAccount ch5 = new CheckingAccount(2500);
+        CheckingAccount ch1 = new CheckingAccount(500, 12345675);
+        CheckingAccount ch2 = new CheckingAccount(1000, 1234567);
+        CheckingAccount ch3 = new CheckingAccount(1500, 1234567);
+        CheckingAccount ch4 = new CheckingAccount(2000, 1234567);
+        CheckingAccount ch5 = new CheckingAccount(2500, 12345678);
         ch1.checkingCountinstances();
 
         System.out.println();

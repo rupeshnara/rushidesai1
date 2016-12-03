@@ -17,25 +17,32 @@ public class CheckingAccount {
 
     private int initialBalance;
     private int acnumber;
+    public int length;
 
-    public int getAccountnumber() {
+
+    public int getAcnumber() {
         return acnumber;
     }
 
-    public void setAccountnumber(int accountnumber) {
-        this.acnumber = accountnumber;
+    public void setAcnumber(int acnumber) {
+        this.acnumber = acnumber;
     }
-
 
     static int count;
     Random r = new Random();
 
 
-    public CheckingAccount(int initialBalance, int acnumber) {
-        if (initialBalance <= 0 && acnumber <= 8) {
+    public CheckingAccount(int inb, int accountnumber) {
+        //int length = (int) Math.log10(number) + 1;
+        length = (int) Math.log10(accountnumber) + 1;
+        System.out.println(length);
+        if (inb <= 0 && length != 8) {
             System.out.println("initial balance should be greater than o or must be positive");
+            throw new RuntimeException("Balance has to be positive");
         } else {
-            System.out.println("initial balance is" + initialBalance);
+            initialBalance = inb;
+            acnumber = accountnumber;
+            System.out.println("initial balance is" + initialBalance + " account number is     " + acnumber);
         }
 
 
@@ -55,6 +62,7 @@ public class CheckingAccount {
     }
 
 
+
     public void checkingCountinstances() {
         System.out.println("hello you are create instances for checking class");
         System.out.print(count);
@@ -67,6 +75,12 @@ public class CheckingAccount {
         System.out.println("Random numbers are" + aNumber);
     }
 
+    @Override
+    public String toString() {
+        return "CheckingAccount{" +
+                "initialBalance=" + initialBalance +
+                '}';
+    }
 }
 
 
