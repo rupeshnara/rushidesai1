@@ -1,8 +1,5 @@
 package solutions;
 
-/**
- * Created by desair4 on 11/29/2016.
- */
 public class Assignment1 {
 
 
