@@ -44,6 +44,9 @@ public class Assignment1 {
             printOdd(a);
         }
     }
+
+
+
     public static void main(String[] args) {
 
         int[] a;
