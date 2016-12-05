@@ -7,10 +7,14 @@ public class BankApplicationDriver {
 
     public static void main(String[] args){
 
+
+        //Array of Savings Avccount
         SavingsAccount savingaccount[] = new SavingsAccount[2];
         savingaccount[0] = new SavingsAccount(300, 5);
         savingaccount[1] = new SavingsAccount(5000, 10);
 
+
+        //Array of Checking account
         CheckingAccount checkingaccount[] = new CheckingAccount[2];
         checkingaccount[0] = new CheckingAccount(400);
         checkingaccount[1] = new CheckingAccount(500);
@@ -39,8 +43,10 @@ public class BankApplicationDriver {
 
     //count number of instances
 
-        System.out.println("number of instaces in checkingaccount: "  + CheckingAccount.getCount());
-        System.out.println("number of instaces in savingaccount: "  + SavingsAccount.getCount());
+        System.out.println("Number of instaces in Checkingaccount: "  + CheckingAccount.getCount());
+        System.out.println("Number of instaces in Savingaccount: "  + SavingsAccount.getCount());
+
+     //
 
 
 

@@ -65,6 +65,18 @@ public class CheckingAccount {
         this.initialBalance = initialBalance;
         this.accountnumber = accountnumber;
 
+        if(initialBalance <= 0){
+
+            throw new IllegalArgumentException(String.valueOf(accountnumber) + "Negative account number");
+        }else{
+
+
+                accountnumber = (int) (Math.random() * 90000000 + 10000000);
+                System.out.println("Account number :" + accountnumber);
+
+
+        }
+
     }
 
 
