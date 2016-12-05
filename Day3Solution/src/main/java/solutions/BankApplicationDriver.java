@@ -22,12 +22,16 @@ public class BankApplicationDriver {
         for (int i = 0; i < checkingAccountArray.length; i++) {
             double debitAmount = (checkingAccountArray[i].getInitialBalance() * 5 / 100);
             System.out.println("Available Balance after debit:" + (checkingAccountArray[i].getInitialBalance() - 5));
-            //checkingAccountArray.debit(debitAmount);
+            checkingAccountArray[i].debit(debitAmount);
 
             double creditAmount = (checkingAccountArray[i].getInitialBalance() * 2 / 100);
             System.out.println("Available Balance after credit:" + (checkingAccountArray[i].getInitialBalance()));
-            //checkingAccountArray.credit(creditAmount);
-
+            checkingAccountArray[i].credit(creditAmount);
+        }
+        for (int i = 0; i < savingsAccountArray.length; i++) {
+            double balance = savingsAccountArray[i].calculateInterest();
+            savingsAccountArray[i].credit(balance);
+            System.out.println("Available Balance with intrest " + savingsAccountArray[i].getInitialBalance());
         }
     }
 }

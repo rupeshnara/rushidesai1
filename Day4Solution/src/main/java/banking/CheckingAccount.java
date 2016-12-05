@@ -11,7 +11,6 @@ public class CheckingAccount {
     public CheckingAccount(double initialBalance) {
         setInitialBalance(initialBalance);
     }
-
     public double getInitialBalance() {
         return initialBalance;
     }

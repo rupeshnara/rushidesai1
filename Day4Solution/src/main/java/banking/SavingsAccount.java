@@ -12,7 +12,6 @@ public class SavingsAccount {
         setInitialBalance(initialBalance);
         setInterestRate(interestRate);
     }
-
     public double getInitialBalance() {
         return initialBalance;
     }
@@ -45,7 +44,9 @@ public class SavingsAccount {
         this.interestRate = interestRate;
     }
 
-    public void calculateInterest() {
+    public int calculateInterest() {
+        // double interest= initialBalance * interestRate;
         System.out.println("Account Ballance after intrest:" + (initialBalance = initialBalance + initialBalance * interestRate));
+        return 0;
     }
 }
