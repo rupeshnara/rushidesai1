@@ -24,11 +24,13 @@ public class SavingsAccount {
         }
     }
 
-    public double getIntialBalance() {
+    public double getIntialBalance()
+    {
         return intialBalance;
     }
 
-    public void setInterestRate(double interestRate) {    // setting Interst
+    public void setInterestRate(double interestRate)
+    {    // setting Interst
         this.interestRate = interestRate;
     }
 
@@ -52,7 +54,7 @@ public class SavingsAccount {
         }
     }
 
-    public double calculateInterest()                   // interst cal()
+    public double calculateInterest()
     {
         return (this.intialBalance * this.interestRate) / 100;
 
