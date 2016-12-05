@@ -20,13 +20,15 @@ public class CheckingAccount extends BaseClass {
         }
         System.out.println(this.accountNumber =accountNumber);
         System.out.println(this.initialBalance=initialBalance);
+        count++;
     }
 
-    public CheckingAccount(int initialBalance)
-    {
-        this.initialBalance=initialBalance;
-        System.out.println(this.initialBalance=initialBalance);
+    public void checkingCountinstances() {
+        System.out.println("hello you are create instances for checking class");
+        System.out.print(count);
     }
+
+
 
 
     public  int getNumberOfDigitsInAccount(int accountNumber) {

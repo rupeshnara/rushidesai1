@@ -10,6 +10,7 @@ public static void main(String[]args){
 
     //SavingAccount s1=new SavingAccount(1000,25252525);
     ch.dateGenerate();
+
 }
 
 }

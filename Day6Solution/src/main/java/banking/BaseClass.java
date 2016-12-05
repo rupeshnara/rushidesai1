@@ -8,6 +8,12 @@ public class BaseClass {
     public int initialBalance;
     public int accountNumber;
     private int accountHash;
+    public int count;
+
+    public void checkingCountinstances() {
+        System.out.println("hello you are create instances for checking class");
+        System.out.print(count);
+    }
 
 
     public int getInitialBalance() {
