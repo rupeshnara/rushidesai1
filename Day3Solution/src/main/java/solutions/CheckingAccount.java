@@ -8,6 +8,9 @@ public class CheckingAccount {
     final int fee = 5;
     private double initialBalance;
 
+    public CheckingAccount(double initialBalance) {
+        setInitialBalance(initialBalance);
+    }
     public double getInitialBalance() {
         return initialBalance;
     }

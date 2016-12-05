@@ -8,6 +8,10 @@ public class SavingsAccount {
     private double initialBalance;
     private double interestRate;
 
+    public SavingsAccount(double initialBalance, double interestRate) {
+        setInitialBalance(initialBalance);
+        setInterestRate(interestRate);
+    }
     public double getInitialBalance() {
         return initialBalance;
     }
