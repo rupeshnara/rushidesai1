@@ -2,23 +2,24 @@ public class SavingsAccount {
 
     private double initialBalance;
     private double interestRate;
-
+//constructor
     public SavingsAccount(double initialBalance, double interestRate) {
-        setInitialBalance(initialBalance);
-        setInterestRate(interestRate);
-    }
-
-    public double getInitialBalance() {
-        return initialBalance;
-    }
-
-    public void setInitialBalance(double initialBalance) {
-
         if (initialBalance <= 0) {
             System.out.println("Balance cannot be negative or zero.");
         } else {
             this.initialBalance = initialBalance;
         }
+            setInterestRate(interestRate);
+
+    }
+    //getter and setter methods
+    public double getInitialBalance() {
+        return initialBalance;
+    }
+
+    public void setInitialBalance(double initialBalance) {
+        this.initialBalance = initialBalance;
+
     }
 
     public double getInterestRate() {
@@ -29,6 +30,7 @@ public class SavingsAccount {
         this.interestRate = interestRate;
     }
 
+//methods
     public void credit(double amount) {
         if (amount < 0) {
             System.out.println("Please ensure the amount to be deposited is not negative: ");

@@ -15,8 +15,6 @@ public class BankApplicationDriver {
         savingsAccountArray[0] = new SavingsAccount(100, 5);
         savingsAccountArray[1] = new SavingsAccount(200, 10);
 
-        int savingaccountcount = SavingsAccount.getCount();
-        int checkingaccountcount = CheckingAccount.getCount();
 
         CheckingAccount checkingAccountsArray[] = new CheckingAccount[2];
         checkingAccountsArray[0] = new CheckingAccount(100);
@@ -39,12 +37,16 @@ public class BankApplicationDriver {
             savingsAccountArray[i].credit(interestOwed);
             System.out.println("Updated Balance " + savingsAccountArray[i].getInitialBalance());
         }
-        System.out.println("Account Number fvor Savings Account  : " + savingsAccount.aNumber);
-        System.out.println("Account Number fvor Checking Account  : " + checkingAccount.aNumber);
 
-        System.out.println("Number of instances for savings account : " + savingaccountcount);
+        System.out.println("Account Number fvor Checking Account  : " + checkingAccount.getAccountNumber());
 
-        System.out.println("Number of instances for checking account : " +   checkingaccountcount );
+            SavingsAccount trial = new SavingsAccount(110,2345678);
+
+
+        System.out.println("trial" + trial);
+
+
+
 
 
     }

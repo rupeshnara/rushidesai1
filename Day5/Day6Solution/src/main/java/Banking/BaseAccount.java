@@ -4,9 +4,19 @@ package Banking;
 import java.util.Date;
 
 public class BaseAccount {
+
+
     public double initialBalance;
     //private int accountHash;
     protected int accountnumber;
+
+
+    public BaseAccount(double initialBalance, int accountnumber, int accountHash) {
+        this.initialBalance = initialBalance;
+        this.accountnumber = accountnumber;
+        this.accountHash = accountHash;
+    }
+
 
     public int getAccountnumber() {
         return accountnumber;
@@ -15,17 +25,16 @@ public class BaseAccount {
     public void setAccountnumber(int accountnumber) {
         this.accountnumber = accountnumber;
     }
-//validate account number and generated account number
-    public void validateAccountNumber( int accountnumber)
-    {
-        if(initialBalance > 0) {
+
+    //validate account number and generated account number
+    public void validateAccountNumber(int accountnumber) {
+        if (initialBalance > 0) {
             accountnumber = (int) (Math.random() * 90000000 + 10000000);
 
         }
-        if(String.valueOf(accountnumber).length() != 8) {
+        if (String.valueOf(accountnumber).length() != 8) {
             throw new IllegalArgumentException(Integer.toString(accountnumber) + "accountnumber not valid");
-        }
-        else
+        } else
             System.out.println("Accountnumber : " + accountnumber);
 
     }
@@ -38,26 +47,26 @@ public class BaseAccount {
     public void setInitialBalance(double initialBalance) {
 
 
-            this.initialBalance = initialBalance;
+        this.initialBalance = initialBalance;
 
     }
+
     public void credit(double amount) {
         if (amount < 0) {
         } else {
             this.initialBalance = this.initialBalance + amount;
         }
     }
+
     //date generated
-    public void toDays( ) {
+    public void toDays() {
         Date date = new Date();
         System.out.println(date.toString());
     }
 
 
-//account hash caluculation
-    int accountHash =   (int) new Date().getTime() + accountnumber;
-
-
+    //account hash caluculation
+    int accountHash = (int) new Date().getTime() + accountnumber;
 
 
     @Override
@@ -65,11 +74,7 @@ public class BaseAccount {
         return "BaseAccount{" +
                 "initialBalance=" + initialBalance +
 
-                ", accountHash='" + accountHash+
+                ", accountHash='" + accountHash +
                 '}';
     }
-
-
-
-
 }
