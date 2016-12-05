@@ -11,22 +11,22 @@ public class CheckingAccount extends BaseAccount {
     public void credit(double amount){
 
         if (amount <= 0){
-            System.out.println("Please ensure the amount to be deposited is not negative");
+            throw new RuntimeException("Amount ot be credited must be more than zero");
         }
         else {
-            this.initialBalance = this.initialBalance + amount;
+            initialBalance = initialBalance + amount;
         }
 
     }
 
     public void debit(double amount){
 
-        if (this.initialBalance < amount + transactionFees){
+        if (initialBalance < amount + transactionFees){
             System.out.println("Your balance is less than the requested amount");
         }
 
         else {
-            this.initialBalance = this.initialBalance - amount - transactionFees;
+            initialBalance = initialBalance - amount - transactionFees;
         }
     }
 
@@ -34,8 +34,8 @@ public class CheckingAccount extends BaseAccount {
         return transactionFees;
     }
 
-    public void setTransactionFees(int transactionFees) {
-        this.transactionFees = transactionFees;
+    public void setTransactionFees(int transactionFees1) {
+        transactionFees = transactionFees1;
     }
 
     @Override

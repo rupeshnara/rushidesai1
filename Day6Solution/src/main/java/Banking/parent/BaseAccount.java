@@ -1,6 +1,8 @@
 package Banking.parent;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 public class BaseAccount {
@@ -8,15 +10,15 @@ public class BaseAccount {
     protected double initialBalance;
     protected Integer accountNumber;
     public  static int count = 0;
-
     private String accountHash;
+
+    private List<Integer> allAccountNumbersArray = new ArrayList<Integer>();
 
     Date date = new Date();
 
     public BaseAccount(){
 
     }
-
     // Constructor to be used when client provides only the initial balance
     // Validate initial balance and generate a random unique account number
 
@@ -31,6 +33,7 @@ public class BaseAccount {
 
         accountNumber = generateAccountNumber();
 
+        count++;
     }
 
     // Constructor to be used when client provides both initial balance and account number
@@ -44,27 +47,28 @@ public class BaseAccount {
         }
 
         // Check if account number has 8 digits
-        if (validateNumberOfDigits()) {
+        if (isNumberOfDigitsValid(accountNumberClient)) {
             throw new RuntimeException("Account Number should have exactly 8 digits");
         }
 
         // Check for duplicate account number
 
-        if (duplicateAccountNumber()){
+        if (isDuplicateAccountNumber(accountNumberClient)){
             throw new RuntimeException("Account Number already exists. Please provide another account number");
         }
 
-        this.accountNumber = accountNumberClient;
+        accountNumber = accountNumberClient;
         count++;
     }
 
     // Check for duplicate account number
-    private boolean duplicateAccountNumber() {
+    private boolean isDuplicateAccountNumber(Integer accountNumber) {
 
-        String verifiedAccountNumber = accountNumber.toString();
-        if(verifiedAccountNumber.equals(accountNumber)) {
+        for (int i = 0; i < allAccountNumbersArray.size(); i++){
 
-            return  false;
+            if (allAccountNumbersArray.get(i) == accountNumber) {
+                return false;
+            }
         }
         return true;
     }
@@ -78,36 +82,26 @@ public class BaseAccount {
     }
 
     // Check for number of digits in account number
-    private boolean validateNumberOfDigits() {
+    private boolean isNumberOfDigitsValid(Integer validateAccountNumber) {
 
-        Integer temp = accountNumber;
-        int digits = 0;
+        int digits = validateAccountNumber.toString().length();
 
-        while (temp >= 10) {
-            temp = temp / 10;
-            digits++;
-        }
+        return digits == 8;
 
-        if (digits == 8) {
-            return true;
-        }
-
-        return false;
     }
 
     // Validate initial balance
     private boolean validateInitialBalance() {
 
-        if (initialBalance <= 0) {
-            return false;
-        }
-        return true;
+        return initialBalance > 0;
     }
 
-    public Integer generateAccountNumber() {
+    private Integer generateAccountNumber() {
 
         Random r = new Random();
-        accountNumber = r.nextInt((9999999 + 1000000) - 1);
+        accountNumber = 10000000 + r.nextInt(90000000);
+        allAccountNumbersArray.add(accountNumber);
+
         return accountNumber;
     }
 
@@ -115,15 +109,15 @@ public class BaseAccount {
         return initialBalance;
     }
 
-    public void setInitialBalance(double initialBalance) {
-        this.initialBalance = initialBalance;
+    public void setInitialBalance(double initialBalance1) {
+        initialBalance = initialBalance1;
     }
 
     public Integer getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(Integer accountNumber) {
-        this.accountNumber = accountNumber;
+    public void setAccountNumber(Integer accountNumber1) {
+        accountNumber = accountNumber1;
     }
 }

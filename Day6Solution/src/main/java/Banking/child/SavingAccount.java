@@ -8,14 +8,18 @@ public class SavingAccount extends BaseAccount {
 
     private double interestRate;
 
+    /*public BaseAccount(double initialBalance, Integer accountNumberClient) {
+    }*/
+
     public void debit(double amount){
 
-        if (this.initialBalance < amount){
-            System.out.println("Your balance is less than the requested amount");
+        if (initialBalance < amount){
+
+            throw new RuntimeException("Initial balance must be more than zero");
         }
 
         else {
-            this.initialBalance = this.initialBalance - amount;
+            initialBalance = initialBalance - amount;
         }
     }
 
@@ -29,8 +33,8 @@ public class SavingAccount extends BaseAccount {
         return interestRate;
     }
 
-    public void setInterestRate(double interestRate) {
-        this.interestRate = interestRate;
+    public void setInterestRate(double interestRate1) {
+        interestRate = interestRate1;
     }
 
     @Override
