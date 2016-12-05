@@ -14,18 +14,17 @@ public class BaseAccount {
 
     private List<Integer> allAccountNumbersArray = new ArrayList<Integer>();
 
-    Date date = new Date();
+    private Date date = new Date();
 
-    public BaseAccount(){
+    public BaseAccount(){}
 
-    }
     // Constructor to be used when client provides only the initial balance
     // Validate initial balance and generate a random unique account number
 
     public BaseAccount(double initialBalance) {
 
         // Validation of initial balance
-        if (validateInitialBalance()) {
+        if (!validateInitialBalance()) {
             throw new RuntimeException("Initial balance must be more than zero");
         }
 
@@ -64,9 +63,10 @@ public class BaseAccount {
     // Check for duplicate account number
     private boolean isDuplicateAccountNumber(Integer accountNumber) {
 
+
         for (int i = 0; i < allAccountNumbersArray.size(); i++){
 
-            if (allAccountNumbersArray.get(i) == accountNumber) {
+            if (allAccountNumbersArray.get(i).equals(accountNumber)) {
                 return false;
             }
         }
@@ -105,6 +105,12 @@ public class BaseAccount {
         return accountNumber;
     }
 
+    // Generate account hash
+
+    protected String generateAccountHash(){
+        return accountHash;
+    }
+
     public double getInitialBalance() {
         return initialBalance;
     }
@@ -119,5 +125,14 @@ public class BaseAccount {
 
     public void setAccountNumber(Integer accountNumber1) {
         accountNumber = accountNumber1;
+    }
+
+    @Override
+    public String toString() {
+        return "BaseAccount{" +
+                "initialBalance=" + initialBalance +
+                ", accountNumber=" + accountNumber +
+                ", date=" + date +
+                '}';
     }
 }

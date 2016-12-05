@@ -8,8 +8,13 @@ public class SavingAccount extends BaseAccount {
 
     private double interestRate;
 
-    /*public BaseAccount(double initialBalance, Integer accountNumberClient) {
-    }*/
+    public SavingAccount(double initialBalance) {
+        super(initialBalance);
+    }
+
+    public SavingAccount(double initialBalance, Integer accountNumberClient) {
+        super(initialBalance, accountNumberClient);
+    }
 
     public void debit(double amount){
 
@@ -39,8 +44,8 @@ public class SavingAccount extends BaseAccount {
 
     @Override
     public String toString() {
-        return "SavingsAccount{" +
-                "initialBalance=" + initialBalance +
-                '}';
+        return "Saving Account Initial Balance {" + initialBalance +
+                "Interest Rate=" + interestRate +
+                "} " + super.toString();
     }
 }

@@ -8,6 +8,14 @@ public class CheckingAccount extends BaseAccount {
 
     private int transactionFees = 5;
 
+    public CheckingAccount(double initialBalance) {
+        super(initialBalance);
+    }
+
+    public CheckingAccount(double initialBalance, Integer accountNumberClient) {
+        super(initialBalance, accountNumberClient);
+    }
+
     public void credit(double amount){
 
         if (amount <= 0){
@@ -40,8 +48,8 @@ public class CheckingAccount extends BaseAccount {
 
     @Override
     public String toString() {
-        return "Banking.child.CheckingAccount{" +
-                "initialBalance=" + initialBalance +
-                '}';
+        return "CheckingAccount{" + initialBalance +
+                "transactionFees=" + transactionFees +
+                "} " + super.toString();
     }
 }
