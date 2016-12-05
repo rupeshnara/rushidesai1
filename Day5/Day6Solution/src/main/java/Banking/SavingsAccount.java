@@ -5,10 +5,19 @@ public class SavingsAccount extends BaseAccount{
     private double interestRate;
 
 
-    public SavingsAccount(double initialBalance, double interestRate) {
-        setInitialBalance(initialBalance);
-        setInterestRate(interestRate);
+    public SavingsAccount(double interestRate) {
+        super();
+        this.interestRate =interestRate;
     }
+
+
+    /*
+    public SavingsAccount(BaseAccount baseaccount, double interestRate) {
+
+        super(initialBalance,accountHash);
+        this.interestRate = interestRate;
+
+    }*/
 
     public double getInterestRate() {
         return interestRate;
@@ -36,7 +45,6 @@ public class SavingsAccount extends BaseAccount{
     public String toString() {
         return "SavingsAccount{" +
                 "initialBalance=" + initialBalance +
-                ", accountNumber=" + accountnumber +
                 ", interest='" + interestRate+ '\'' +
                 '}';
     }

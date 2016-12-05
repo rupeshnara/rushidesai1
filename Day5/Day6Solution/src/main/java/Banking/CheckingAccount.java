@@ -1,10 +1,13 @@
 package Banking;
 
-public class CheckingAccount extends BaseAccount{
+public class CheckingAccount extends BaseAccount {
 
     private double feeCharged = 5;
 
-
+    public CheckingAccount(double feeCharged) {
+        super();
+        this.feeCharged = feeCharged;
+    }
 
     public void debit(double amount) {
         if (this.initialBalance < amount) {
@@ -21,4 +24,15 @@ public class CheckingAccount extends BaseAccount{
     public void setFeeCharged(double feeCharged) {
         this.feeCharged = feeCharged;
     }
+
+    @Override
+    public String toString() {
+        return "SavingsAccount{" +
+                "initialBalance=" + initialBalance +
+                ", feeCharged='" + feeCharged + '\'' +
+                '}';
+
+    }
+
+
 }
