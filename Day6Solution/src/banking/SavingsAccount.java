@@ -4,7 +4,7 @@ public class SavingsAccount extends BaseAccount {
     private double interestRate;
 
     public SavingsAccount(double balance, double interest) {
-        intialBalance = balance;
+        super(intialBalance);
         interestRate = interest;
     }
     public void setInterestRate(double interestRate) {

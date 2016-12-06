@@ -3,15 +3,20 @@ import java.util.Date;
 public class BaseAccount {
     public double intialBalance;
     public int accountNumber;
-    private int accountHash;
-    java.util.Date dateCreated = new java.util.Date();
-      public BaseAccount(){
-           // No argumented cons
-      }
+    private String  accountHash;
+    Date dateCreated = new Date();
+
          public BaseAccount(double intialBal, int accountNO, int accountHash) {
                  this.intialBalance=intialBal;
                  this.accountNumber=accountNO;
                  this.accountHash=accountHash;
+         }
+          public String generateAccountHash(){
+             Date d = new Date();
+             Base64.Encoder encoder = new Base64.encoder();
+             System.out.println("Todays Date:: "+d);
+             System.out.println(encoder);
+             return ;
          }
 
     public void setIntialBalance(double intialBalance) {
