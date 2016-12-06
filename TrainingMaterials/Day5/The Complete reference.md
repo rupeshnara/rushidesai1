@@ -32,9 +32,8 @@ Topics done:
 
 #####Chapter 8:
 Topics left:
-1. Dynamic Method dispatch
-2. Using abstract classes.
-3. using final with inheritance.
+1. Using abstract classes.
+2. using final with inheritance.
 
 #####Chapter 10:
 Topics done:
