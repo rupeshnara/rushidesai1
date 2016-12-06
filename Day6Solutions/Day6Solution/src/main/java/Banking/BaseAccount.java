@@ -7,7 +7,7 @@ public class BaseAccount {
 
 
     public double initialBalance;
-    //private int accountHash;
+    //public  int accountHash;
     protected int accountnumber;
 
 
@@ -15,6 +15,10 @@ public class BaseAccount {
         this.initialBalance = initialBalance;
         this.accountnumber = accountnumber;
         this.accountHash = accountHash;
+    }
+
+    public BaseAccount() {
+
     }
 
 
