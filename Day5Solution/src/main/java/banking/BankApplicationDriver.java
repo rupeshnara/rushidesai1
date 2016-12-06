@@ -11,18 +11,20 @@ public class BankApplicationDriver {
         //Array of Savings Avccount
         SavingsAccount savingaccount[] = new SavingsAccount[2];
         savingaccount[0] = new SavingsAccount(300, 5);
-        savingaccount[1] = new SavingsAccount(5000, 10);
+        savingaccount[1] = new SavingsAccount(5000, 12345678);
 
 
         //Array of Checking account
-        CheckingAccount checkingaccount[] = new CheckingAccount[2];
+        CheckingAccount checkingaccount[] = new CheckingAccount[3];
         checkingaccount[0] = new CheckingAccount(400);
         checkingaccount[1] = new CheckingAccount(500);
+        checkingaccount[2] = new CheckingAccount(5000, 12345678);
+
 
 
 
         for (int i = 0; i < checkingaccount.length; i++) {
-            int finalammount= (5 * checkingaccount[i].getInitialBalance()) / 100;
+            double finalammount= (5 * checkingaccount[i].getInitialBalance()) / 100;
             checkingaccount[i].debit(finalammount);
 
             double amountToDeposit = (2 * checkingaccount[i].getInitialBalance()) / 100;
@@ -34,7 +36,7 @@ public class BankApplicationDriver {
         }
 
         for (int i = 0; i < savingaccount.length; i++) {
-            int finalammount= savingaccount[i].calculateInterest();
+            double finalammount= savingaccount[i].calculateInterest(12,5);
            savingaccount[i].credit(finalammount);
             System.out.println("final Balance " + savingaccount[i].getInitialBalance());
         }
@@ -47,6 +49,9 @@ public class BankApplicationDriver {
         System.out.println("Number of instaces in Savingaccount: "  + SavingsAccount.getCount());
 
      //
+
+
+
 
 
 

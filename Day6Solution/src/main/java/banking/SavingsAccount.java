@@ -3,9 +3,9 @@ package banking;
 /**
  * Created by Paul on 12/3/2016.
  */
-public class SavingsAccount {
+public class SavingsAccount extends baseaccount {
 
-   int initialBalance;
+
    double interestrate;
 
     public int getInitialBalance() {

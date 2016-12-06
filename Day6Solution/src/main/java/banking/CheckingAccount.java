@@ -3,9 +3,9 @@ package banking;
 /**
  * Created by Paul on 12/3/2016.
  */
-public class CheckingAccount {
+public class CheckingAccount extends baseaccount {
 
-    int initialBalance;
+
     public int feecharged = 5 ;
 
     public int getFeecharged() {
@@ -16,8 +16,6 @@ public class CheckingAccount {
         this.feecharged = feecharged;
     }
 
-
-
     public int getInitialBalance() {
         return initialBalance;
     }
@@ -25,6 +23,7 @@ public class CheckingAccount {
     public void setInitialBalance(int initialBalance) {
         this.initialBalance = initialBalance;
     }
+
     //validation
     public CheckingAccount(int initialBalance) {
         this.initialBalance = initialBalance;

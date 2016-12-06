@@ -5,17 +5,22 @@ package banking;
  */
 public class CheckingAccount {
 
-   public  int initialBalance;
-    public int feecharged = 5 ;
-   public  int accountnumber;
-   public  static int count;
+//intial parameters
+    double interestrate;
+    public static int count;
+    public double initialBalance;
+    int accountnumber;
 
-    public int getFeecharged() {
-        return feecharged;
+
+    public int feecharged = 5 ;
+
+   //getters and setter
+    public double getInterestrate() {
+        return interestrate;
     }
 
-    public void setFeecharged(int feecharged) {
-        this.feecharged = feecharged;
+    public void setInterestrate(double interestrate) {
+        this.interestrate = interestrate;
     }
 
     public static int getCount() {
@@ -26,12 +31,27 @@ public class CheckingAccount {
         CheckingAccount.count = count;
     }
 
-    public int getInitialBalance() {
+    public double getInitialBalance() {
         return initialBalance;
     }
 
-    public void setInitialBalance(int initialBalance) {
+    public void setInitialBalance(double initialBalance) {
         this.initialBalance = initialBalance;
+    }
+
+    public int getAccountnumber() {
+        return accountnumber;
+    }
+
+    public void setAccountnumber(int accountnumber) {
+        this.accountnumber = accountnumber;
+    }
+    public int getFeecharged() {
+        return feecharged;
+    }
+
+    public void setFeecharged(int feecharged) {
+        this.feecharged = feecharged;
     }
 
 
@@ -40,40 +60,49 @@ public class CheckingAccount {
 
 
 
-    //object creation based on intial balance
+
+    //object creation based on intial balance and account number generation when not given
     public CheckingAccount(int initialBalance) {
 
-        if(initialBalance<=0){
-                System.out.println("balance cannot be negative");
+        if(initialBalance > 0){
+
+
+            accountnumber = (int) (Math.random() * 90000000 + 10000000);
+            System.out.println("Account number :" + accountnumber);
+
             }
             else{
 
-            this.initialBalance = initialBalance;
+            throw new IllegalArgumentException(String.valueOf(accountnumber) + "Negative Balance");
 
         }
+
+
+
 
         count++;
 
         }
 
 
+        //  accountnumber when provided
+    public CheckingAccount(int initialBalance, int accountnumber1) {
+        this(initialBalance);
+        this.accountnumber = accountnumber1;
+        if(initialBalance > 0) {
+            if (String.valueOf(accountnumber1).length() == 8) {
 
-
-
-        //  accountnumber generation
-    public CheckingAccount(int initialBalance, int accountnumber) {
-        this.initialBalance = initialBalance;
-        this.accountnumber = accountnumber;
-
-        if(initialBalance <= 0){
-
-            throw new IllegalArgumentException(String.valueOf(accountnumber) + "Negative account number");
-        }else{
+                System.out.println("valid account number : " + accountnumber1);
+            } else {
 
 
                 accountnumber = (int) (Math.random() * 90000000 + 10000000);
-                System.out.println("Account number :" + accountnumber);
+                System.out.println("Account number is not correct your new account number :" + accountnumber);
 
+
+            }
+        }else{
+            throw new IllegalArgumentException(String.valueOf(initialBalance) + "BALANCE NOT VALID");
 
         }
 
@@ -83,7 +112,7 @@ public class CheckingAccount {
 
 
     //ammount credited in the account
-    public void credit(int ammount){
+    public void credit(double ammount){
 
         if(ammount > 0){
 
@@ -101,7 +130,7 @@ public class CheckingAccount {
 
 
     //ammount debited in the account by taking fee charged under consederation
-    public void debit(int ammount) {
+    public void debit(double ammount) {
 
         if (ammount <= initialBalance) {
 
