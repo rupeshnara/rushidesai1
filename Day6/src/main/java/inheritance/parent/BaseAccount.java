@@ -13,15 +13,20 @@ public class BaseAccount extends Object {
     public BaseAccount() {
     }
 
-    public BaseAccount(int initial) {
+    public BaseAccount(int initialBalance1) {
 
-        if (initial <= 0) {
+        if (initialBalance1 <= 0) {
             throw new RuntimeException("initital balance cannot be zero");
         }
 
-        initialBalance = initial;
+        initialBalance = initialBalance1;
 //        initialBalance = initBalance;
     }
+
+    //Other methods which are not setters and getters
+
+
+    //setters and getters
 
     public void setPassword(String password) {
         this.password = password;
