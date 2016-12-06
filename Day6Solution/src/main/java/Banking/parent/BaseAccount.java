@@ -12,7 +12,7 @@ public class BaseAccount {
     public  static int count = 0;
     private String accountHash;
 
-    private List<Integer> allAccountNumbersArray = new ArrayList<Integer>();
+    static List<Integer> allAccountNumbersArray = new ArrayList<Integer>();
 
     private Date date = new Date();
 
@@ -31,6 +31,7 @@ public class BaseAccount {
         // Generate unique account number
 
         accountNumber = generateAccountNumber();
+        allAccountNumbersArray.add(accountNumber);
 
         count++;
     }
