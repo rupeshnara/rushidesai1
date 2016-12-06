@@ -19,8 +19,22 @@
         <module>Day3Solution</module>
         <module>Day4Solution</module>
         <module>Day5</module>
-        <module>Day5Solution</module>
         <module>Day6</module>
+        <module>Day7</module>
         <module>Day6Solution</module>
+        <module>Day8</module>
+        <module>Day9</module>
     </modules>
+
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.6.0</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+    </plugins>
 </project>

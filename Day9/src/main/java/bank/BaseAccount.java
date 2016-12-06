@@ -1,13 +1,24 @@
 package bank;
 
-//import java.util.Base64;
+import bank.exceptions.AccountNumberLengthNotValid;
+import bank.exceptions.InitialBalanceNotValid;
+import bank.interfaces.IAccount;
+
+import java.util.Base64;
 import java.util.Date;
 import java.util.Random;
 
 /**
  * Created by desair4 on 12/4/2016.
  */
-public class BaseAccount {
+public abstract class BaseAccount implements IAccount {
+
+    /*
+    * 1. You cannot instantiate abstract class
+    * 2. They are class version of interface
+    * 3. Or you want all clients to implement some methods and have common instance variables
+    *
+    * */
     protected double initialBalance;
     protected Integer accountNumber;
     private static int count = 0;   //Think of does it make sense to make this field protected or private it better?
@@ -21,15 +32,15 @@ public class BaseAccount {
     }*/
 
     //static methods cannot access non static varaibles
-    public static void dummy() {
+    protected static void dummy() {
 //        accountNumber = "121";
     }
 
     // Constructor to be used when client provides only the initial balance
     // Validate initial balance and generate a random unique account number
-    public BaseAccount(double initialBalance, String accountHash1) {
+    protected BaseAccount(double initialBalance, String accountHash1) {
         // Validation of initial balance
-        if (validateInitialBalance()) {
+        if (isValidaBalance()) {
             throw new RuntimeException("Initial balance must be more than zero");
         }
 
@@ -43,15 +54,15 @@ public class BaseAccount {
 
     // Constructor to be used when client provides both initial balance and account number
     // Validate the initial balance and check if account number has 8 digits
-    public BaseAccount(double initialBalance, Integer accountNumberClient, String accountHash1) {
+    protected BaseAccount(double initialBalance, Integer accountNumberClient, String accountHash1) throws AccountNumberLengthNotValid {
         // Validation of initial balance
-        if (validateInitialBalance()) {
-            throw new RuntimeException("Initial balance must be more than zero");
+        if (!isValidaBalance()) {
+            throw new InitialBalanceNotValid("Initial balance must be more than zero");
         }
 
         // Check if account number has 8 digits
-        if (validateNumberOfDigits()) {
-            throw new RuntimeException("Account Number should have exactly 8 digits");
+        if (!isValidNumberOfDigits(accountNumberClient)) {
+            throw new AccountNumberLengthNotValid("Account Number should have exactly 8 digits");
         }
 
         isDuplicateAccountNumber(accountNumberClient);
@@ -80,19 +91,17 @@ public class BaseAccount {
     }
 
     // Check for number of digits in account number
-    private boolean validateNumberOfDigits() {
-        Integer temp = accountNumber;
-        int digits = 0;
-        while (temp >= 10) {
-            temp = temp / 10;
-            digits++;
-        }
+    private boolean isValidNumberOfDigits(Integer accountNumber1) {
+
+        int digits = accountNumber1.toString().length();
+
         return digits == 8;
     }
 
     // Validate initial balance
-    private boolean validateInitialBalance() {
-        return initialBalance <= 0;
+
+    private boolean isValidaBalance() {
+        return initialBalance >= 0;
     }
 
     private Integer generateAccountNumber() {
@@ -103,8 +112,7 @@ public class BaseAccount {
 
     static protected String generateAccountHash() {
         Date d = new Date();
-        //return Base64.getEncoder().encodeToString(d.toString().getBytes());
-        return "";
+        return Base64.getEncoder().encodeToString(d.toString().getBytes());
     }
 
     public double getInitialBalance() {
@@ -153,5 +161,36 @@ public class BaseAccount {
         MyList(Integer accountNumber1) {
             accountNumber = accountNumber1;
         }
+
+        //abstract classes
+        //interfaces
+        //inheritance
+        //polymorphism
+        //static
+        //private
+
+        /*
+        * Topics left
+        *
+        * 1. Collections
+        * 2. Generics
+        * 3. Multithreading -> Limited. And it is too much advanced -> Concepts from Operating systems mutex ,semaphores
+        * 4. enums
+        * 5. final
+        * 6. Mutability -> String -> StringBuffer StringBuilder
+        * 7. AutoBoxing and Unboxing
+        * */
+
+
+        /*
+        * Database
+        * Hibernate
+        * Spring
+        * Spring AOP
+        * SPring ORM
+        * SPring DI
+        * SPring MVC
+        *
+        * */
     }
 }
