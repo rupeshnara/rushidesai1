@@ -1,6 +1,6 @@
 package driver;
 
-import child.SavingsAccount;
+import bank.child.SavingsAccount;
 
 import java.util.Date;
 
