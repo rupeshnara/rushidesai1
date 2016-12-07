@@ -24,6 +24,7 @@
         <module>Day6Solution</module>
         <module>Day8</module>
         <module>Day9</module>
+        <module>Day9Solution</module>
     </modules>
 
     <plugins>
