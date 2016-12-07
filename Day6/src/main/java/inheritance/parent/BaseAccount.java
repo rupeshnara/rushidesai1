@@ -4,11 +4,11 @@ package inheritance.parent;
  * Created by desair4 on 11/30/2016.
  */
 public class BaseAccount extends Object {
+    static public int count;
     public int initialBalance;
     public int accountNumber;
-    static public int count;
-    private String password;
     protected int accountKey;   //protected == default if no inheritance is involved.
+    private String password;
 
     public BaseAccount() {
     }

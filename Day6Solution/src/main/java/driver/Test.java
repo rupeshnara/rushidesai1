@@ -18,7 +18,7 @@ public class Test {
 
         System.out.println("Account Number ...... Savings Account  : " + sAccount.accountNumber);
         System.out.println("Account Number ...... Checking Account  : " + cAccount.accountNumber);*/
-        
+
         SavingsAccount savingsAccount = new SavingsAccount(12, 1233434);
 
         String savingsAccountStringRepresantation = savingsAccount.toString();

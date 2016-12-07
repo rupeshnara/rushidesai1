@@ -12,7 +12,9 @@ public class SavingsAccount {
         setInitialBalance(initialBalance);
         setInterestRate(interestRate);
     }
+
     public double getInitialBalance() {
+
         return initialBalance;
     }
 
@@ -21,10 +23,12 @@ public class SavingsAccount {
     }
 
     public void credit(double amount) {
-        if (amount > 0) {
-            System.out.println("Account Ballance after credit:" + (initialBalance = initialBalance + amount));
+        if (amount < 0.0) {
+            System.out.println("Please ensure the amount to be deposited is not negative:" + amount);
+            //System.out.println("Account Ballance after credit:" + (initialBalance = initialBalance + amount));
         } else {
-            System.out.println("Please ensure the amount to be deposited is not negative or zero:");
+            System.out.println("Account Ballance after credit:" + (initialBalance = initialBalance + amount));
+            //System.out.println("Please ensure the amount to be deposited is not negative:" +amount);
         }
     }
 
@@ -32,7 +36,7 @@ public class SavingsAccount {
         if (amount == initialBalance || amount <= initialBalance) {
             System.out.println("Account Ballance after withdraw:" + (initialBalance = initialBalance - amount));
         } else {
-            System.out.println("Please enter valid amount");
+            System.out.println("Please enter valid 1amount" + amount);
         }
     }
 
@@ -44,9 +48,10 @@ public class SavingsAccount {
         this.interestRate = interestRate;
     }
 
-    public int calculateInterest() {
+    public double calculateInterest() {
+        double interest = (initialBalance * interestRate) / 100;
         // double interest= initialBalance * interestRate;
-        System.out.println("Account Ballance after intrest:" + (initialBalance = initialBalance + initialBalance * interestRate));
-        return 0;
+        System.out.println("Account Ballance after intrest:" + (initialBalance + interest));
+        return interest;
     }
 }

@@ -13,6 +13,8 @@ import java.util.Random;
  */
 public abstract class BaseAccount implements IAccount {
 
+    private static int count = 0;   //Think of does it make sense to make this field protected or private it better?
+    static private MyList previousAccountNumbers = new MyList(null); //start with some initial value
     /*
     * 1. You cannot instantiate abstract class
     * 2. They are class version of interface
@@ -21,20 +23,13 @@ public abstract class BaseAccount implements IAccount {
     * */
     protected double initialBalance;
     protected Integer accountNumber;
-    private static int count = 0;   //Think of does it make sense to make this field protected or private it better?
     private String accountHash;
-    static private MyList previousAccountNumbers = new MyList(null); //start with some initial value
     //    int[] previousAccountNumbersArr = new int[10];  //
     private Date date = new Date();
 
     /*public BaseAccount(){
 
     }*/
-
-    //static methods cannot access non static varaibles
-    protected static void dummy() {
-//        accountNumber = "121";
-    }
 
     // Constructor to be used when client provides only the initial balance
     // Validate initial balance and generate a random unique account number
@@ -71,6 +66,22 @@ public abstract class BaseAccount implements IAccount {
         count++;
     }
 
+    //static methods cannot access non static varaibles
+    protected static void dummy() {
+//        accountNumber = "121";
+    }
+
+    static protected String generateAccountHash() {
+        Date d = new Date();
+        return Base64.getEncoder().encodeToString(d.toString().getBytes());
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    // Validate initial balance
+
     // Check for duplicate account number
     private void isDuplicateAccountNumber(Integer accountNumber) {
         /*
@@ -98,8 +109,6 @@ public abstract class BaseAccount implements IAccount {
         return digits == 8;
     }
 
-    // Validate initial balance
-
     private boolean isValidaBalance() {
         return initialBalance >= 0;
     }
@@ -108,11 +117,6 @@ public abstract class BaseAccount implements IAccount {
         Random r = new Random();
         accountNumber = r.nextInt((9999999 + 1000000) - 1);
         return accountNumber;
-    }
-
-    static protected String generateAccountHash() {
-        Date d = new Date();
-        return Base64.getEncoder().encodeToString(d.toString().getBytes());
     }
 
     public double getInitialBalance() {
@@ -129,10 +133,6 @@ public abstract class BaseAccount implements IAccount {
 
     public void setAccountNumber(Integer accountNumber) {
         this.accountNumber = accountNumber;
-    }
-
-    public static int getCount() {
-        return count;
     }
 
     public String getAccountHash() {

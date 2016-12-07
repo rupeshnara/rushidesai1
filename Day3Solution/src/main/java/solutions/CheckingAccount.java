@@ -11,6 +11,7 @@ public class CheckingAccount {
     public CheckingAccount(double initialBalance) {
         setInitialBalance(initialBalance);
     }
+
     public double getInitialBalance() {
         return initialBalance;
     }
@@ -28,11 +29,13 @@ public class CheckingAccount {
     }
 
     public void debit(double amount) {
-        if (amount == initialBalance - fee) {
+        if (amount < 0.0) {
+            System.out.println("Please enter valid amount");
+        } else if (initialBalance < amount + fee) {
+            System.out.println("You don't have sufficient balance to do this transaction, Available Balance:" + initialBalance);
+        } else {
             System.out.println("Please note, fee for this transaction is $" + fee);
             System.out.println("Account Balance after withdraw:" + (initialBalance = initialBalance - amount - fee));
-        } else {
-            System.out.println("Please enter valid amount");
         }
     }
 }

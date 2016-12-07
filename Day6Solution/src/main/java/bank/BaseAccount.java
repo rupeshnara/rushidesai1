@@ -8,22 +8,17 @@ import java.util.Random;
  * Created by desair4 on 12/4/2016.
  */
 public class BaseAccount {
+    private static int count = 0;   //Think of does it make sense to make this field protected or private it better?
+    static private MyList previousAccountNumbers = new MyList(null); //start with some initial value
     protected double initialBalance;
     protected Integer accountNumber;
-    private static int count = 0;   //Think of does it make sense to make this field protected or private it better?
     private String accountHash;
-    static private MyList previousAccountNumbers = new MyList(null); //start with some initial value
     //    int[] previousAccountNumbersArr = new int[10];  //
     private Date date = new Date();
 
     /*public BaseAccount(){
 
     }*/
-
-    //static methods cannot access non static varaibles
-    public static void dummy() {
-//        accountNumber = "121";
-    }
 
     // Constructor to be used when client provides only the initial balance
     // Validate initial balance and generate a random unique account number
@@ -58,6 +53,20 @@ public class BaseAccount {
         accountNumber = accountNumberClient;
 
         count++;
+    }
+
+    //static methods cannot access non static varaibles
+    public static void dummy() {
+//        accountNumber = "121";
+    }
+
+    static protected String generateAccountHash() {
+        Date d = new Date();
+        return Base64.getEncoder().encodeToString(d.toString().getBytes());
+    }
+
+    public static int getCount() {
+        return count;
     }
 
     // Check for duplicate account number
@@ -101,11 +110,6 @@ public class BaseAccount {
         return accountNumber;
     }
 
-    static protected String generateAccountHash() {
-        Date d = new Date();
-        return Base64.getEncoder().encodeToString(d.toString().getBytes());
-    }
-
     public double getInitialBalance() {
         return initialBalance;
     }
@@ -120,10 +124,6 @@ public class BaseAccount {
 
     public void setAccountNumber(Integer accountNumber) {
         this.accountNumber = accountNumber;
-    }
-
-    public static int getCount() {
-        return count;
     }
 
     public String getAccountHash() {

@@ -9,6 +9,7 @@ public class CheckingAccount {
 
     private int initialBalance;
     private int accountNumber;
+    private Random random = new Random();
 
     public CheckingAccount(int initialBalance, int accountNumber) {
         //Condition1 : InitialBalance >= 0
@@ -37,8 +38,6 @@ public class CheckingAccount {
 
         //At this point you have both accountNumber and initialBalance
     }
-
-    private Random random = new Random();
 
     private int generateAccountNumber() {
         int temp = 10000000 + random.nextInt(99999999 - 10000000 + 1);

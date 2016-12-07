@@ -14,6 +14,8 @@ public class SavingsAccount extends BaseAccount {
         super(); //This will not compile since parent doesnot have a no argument constructor.
     }*/
 
+    private double interestRate;
+
     //We need to create explicit constructors since if we don't compiler creates one like above which is not valid.
     public SavingsAccount(double initialBalance) {
 //        super(initialBalance, Base64.getEncoder().encodeToString(new Date().toString().getBytes()));  // instead of doing it inline here, we put it inside method, since method is going to be used by all childs we put it in parent.
@@ -25,8 +27,6 @@ public class SavingsAccount extends BaseAccount {
     public SavingsAccount(double initialBalance, Integer accountNumberClient) throws AccountNumberLengthNotValid {
         super(initialBalance, accountNumberClient, generateAccountHash());
     }
-
-    private double interestRate;
 
     public void debit(double amount) {
 
