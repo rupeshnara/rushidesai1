@@ -1,24 +1,28 @@
 package Banking.child;
 
+import Banking.exceptions.AccountNumberLengthNotValidException;
+import Banking.exceptions.DuplicateAccountNumberException;
+import Banking.exceptions.InitialBalanceNotValidException;
 import Banking.parent.BaseAccount;
 
 public class SavingAccount extends BaseAccount {
 
     private double interestRate;
 
-    public SavingAccount(double initialBalance) {
+    public SavingAccount(double initialBalance) throws InitialBalanceNotValidException {
         super(initialBalance);
     }
 
-    public SavingAccount(double initialBalance, Integer accountNumberClient) {
+    public SavingAccount(double initialBalance, Integer accountNumberClient) throws InitialBalanceNotValidException,
+            AccountNumberLengthNotValidException, DuplicateAccountNumberException{
         super(initialBalance, accountNumberClient);
     }
 
-    public void debit(double amount){
+    public void debit(double amount) throws InitialBalanceNotValidException{
 
         if (initialBalance < amount){
 
-            throw new RuntimeException("Initial balance must be more than zero");
+            throw new InitialBalanceNotValidException("Initial balance must be more than zero");
         }
 
         else {

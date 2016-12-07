@@ -26,7 +26,7 @@ public abstract class BaseAccount implements IAccount {
     // Constructor to be used when client provides only the initial balance
     // Validate initial balance and generate a random unique account number
 
-    public BaseAccount(double initialBalance) throws Exception{
+    public BaseAccount(double initialBalance) throws InitialBalanceNotValidException{
 
         // Validation of initial balance
         if (!isInitialBalanceValid()) {
@@ -44,7 +44,8 @@ public abstract class BaseAccount implements IAccount {
     // Constructor to be used when client provides both initial balance and account number
     // Validate the initial balance and check if account number has 8 digits
 
-    public BaseAccount(double initialBalance, Integer accountNumberClient) throws Exception{
+    public BaseAccount(double initialBalance, Integer accountNumberClient) throws InitialBalanceNotValidException,
+            AccountNumberLengthNotValidException, DuplicateAccountNumberException{
 
         // Validation of initial balance
         if (!isInitialBalanceValid()) {
