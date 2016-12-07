@@ -15,7 +15,7 @@ public abstract class BaseAccount implements IAccount {
 
     /*
     * 1. You cannot instantiate abstract class
-    * 2. They are class version of interface
+    * 2. They are class equivalent of interface
     * 3. Or you want all clients to implement some methods and have common instance variables
     *
     * */
