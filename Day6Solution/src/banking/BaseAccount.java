@@ -21,7 +21,7 @@ public class BaseAccount {
 
     public void setIntialBalance(double intialBalance) {
         if (intialBalance <= 0) {
-            System.out.println("Balance cannot be negative or zero.");
+             System.out.println("Balance cannot be negative or zero.");
         } else {
             this.intialBalance = intialBalance;
         }
