@@ -1,5 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -15,17 +15,19 @@
         <module>Day1</module>
         <module>Day2</module>
         <module>Day3</module>
-        <module>Day4</module>
-
-
         <module>Day3Solution</module>
+        <module>Day4</module>
         <module>Day4Solution</module>
         <module>Day5</module>
+        <module>Day5Solution</module>
         <module>Day6</module>
         <module>Day6Solution</module>
         <module>Day6Solutions</module>
         <module>Day7</module>
         <module>Day8</module>
-        <module>Day5Solution</module>
+        <module>Day9</module>
+        <module>Day9Solution</module>
+
+
     </modules>
 </project>
