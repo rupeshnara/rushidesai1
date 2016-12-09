@@ -1,24 +1,34 @@
-package Banking;
+package child;
 
+import Banking.BaseAccount;
+import exceptions.AccountNumberLengthNotValid;
+
+/**
+ * Created by Venkat Ramana on 12/8/2016.
+ */
 public class CheckingAccount extends BaseAccount {
-
     private int transactionFees = 5;
 
-    //constructor with initialBalance and involing Baseclass constructor
     public CheckingAccount(double initialBalance) {
-        super(initialBalance, generateAccountHash());
+        super(initialBalance);
     }
 
-    //constructor with initialBalance and accountNumber and superclass constructors
-    public CheckingAccount(double initialBalance, Integer accountNumber1) {
-        super(initialBalance, accountNumber1, generateAccountHash());
+    public CheckingAccount(double initialBalance, Integer accountNumberClient) throws AccountNumberLengthNotValid {
+        super(initialBalance, accountNumberClient);
     }
 
+    public void credit(double amount) {
+        if (amount <= 0) {
+            //needs to throw error if amount<0
+            throw new RuntimeException("Please ensure the amount to be deposited is not negative");
+        } else {
+            initialBalance = initialBalance + amount;
+        }
+    }
 
-    //method for debit
     public void debit(double amount) {
         if (initialBalance < amount + transactionFees) {
-//throw exception if amount is less than initialBalance
+
             throw new RuntimeException("Your balance is less than the requested amount");
         } else {
 
@@ -41,5 +51,4 @@ public class CheckingAccount extends BaseAccount {
                 "} " + super.toString();
     }
 }
-
 

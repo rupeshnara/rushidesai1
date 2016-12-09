@@ -13,8 +13,11 @@ public class SmartClient extends BaseAccount {
 
 //        BaseAccount baseAccount = new BaseAccount(12, "22");
     }
-
     public SmartClient(double initialBalance, Integer accountNumberClient, String accountHash1) throws AccountNumberLengthNotValid {
         super(initialBalance, accountNumberClient, accountHash1);
+    }
+
+    public void debit(double amount) {
+
     }
 }

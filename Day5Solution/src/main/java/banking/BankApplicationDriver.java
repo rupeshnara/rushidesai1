@@ -1,20 +1,14 @@
 package banking;
 
+
 public class BankApplicationDriver {
 
 
     public static void main(String[] args) {
 
-        SavingsAccount savingsAccount = new SavingsAccount(100, 5);
-        double interest = savingsAccount.calculateInterest();
-        savingsAccount.credit(interest);
-
-        CheckingAccount checkingAccount = new CheckingAccount(100);
-
         SavingsAccount savingsAccountArray[] = new SavingsAccount[2];
-        savingsAccountArray[0] = new SavingsAccount(100, 5);
-        savingsAccountArray[1] = new SavingsAccount(200, 10);
-
+        savingsAccountArray[0] = new SavingsAccount(100, 55555555);
+        savingsAccountArray[1] = new SavingsAccount(200, 11111111);
 
         CheckingAccount checkingAccountsArray[] = new CheckingAccount[2];
         checkingAccountsArray[0] = new CheckingAccount(100);
@@ -38,18 +32,16 @@ public class BankApplicationDriver {
             System.out.println("Updated Balance " + savingsAccountArray[i].getInitialBalance());
         }
 
-        System.out.println("Account Number fvor Checking Account  : " + checkingAccount.getAccountNumber());
 
-            SavingsAccount trial = new SavingsAccount(110,2345678);
+        System.out.println("No of CheckingAccounts created = " + CheckingAccount.getCount());
+        System.out.println("No of SavingsAccounts created = " + SavingsAccount.getCount());
 
+        for (int i = 0; i < checkingAccountsArray.length; i++) {
+            System.out.println("CheckingAccounts AccountNumber = " + checkingAccountsArray[i].getAccountNumber());
+        }
 
-        System.out.println("trial" + trial);
-
-
-
-
-
+        for (int i = 0; i < savingsAccountArray.length; i++) {
+            System.out.println("SavingsAccounts AccountNumber " + savingsAccountArray[i].getAccountNumber());
+        }
     }
-
-
 }

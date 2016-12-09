@@ -1,22 +1,26 @@
-package Banking;
+package child;
 
-public class SavingsAccount extends BaseAccount{
 
+import Banking.BaseAccount;
+import exceptions.AccountNumberLengthNotValid;
+
+/**
+ * Created by Venkat Ramana on 12/8/2016.
+ */
+public class SavingsAccount extends BaseAccount {
     private double interestRate;
 
-    //constructor with initialBalance and invoking super class constructor
-    public SavingsAccount(double initialBalance) {
+    public SavingsAccount(double initialBalance, double interestRate1) {
 
-        super(initialBalance, generateAccountHash());
+        super(initialBalance);
 
-        interestRate = interestRate;
+        interestRate = interestRate1;
     }
 
-    public SavingsAccount(double initialBalance, Integer accountNumber1) {
-        super(initialBalance, accountNumber1, generateAccountHash());
+    public SavingsAccount(double initialBalance, Integer accountNumber1) throws AccountNumberLengthNotValid {
+        super(initialBalance, accountNumber1);
     }
 
-    //a method for creating debit
     public void debit(double amount) {
 
         if (initialBalance < amount) {
@@ -45,7 +49,3 @@ public class SavingsAccount extends BaseAccount{
                 "} " + super.toString();
     }
 }
-
-	
-
-

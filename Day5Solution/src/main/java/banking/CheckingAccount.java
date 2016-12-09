@@ -1,91 +1,67 @@
 package banking;
+
 import java.util.Random;
+
 public class CheckingAccount {
+    private static int count = 0;
+    private static int[] allAccountNumbers = new int[100];
     private double initialBalance;
     private double feeCharged = 5;
-    private int accountnumber;
-     public static int count = 0;
+    private int accountNumber;
 
-    int [] array = new int[100];
-    //constructor
-    public CheckingAccount(double initialBalance) {
-        if (initialBalance <= 0) {
-            System.out.println("Balance cannot be negative or zero.");
-        } else {
-            this.initialBalance = initialBalance;
+    //constructor with initialBalance and accountNumber
+    public CheckingAccount(double initialBalance, int accountNumber) {
+        if (initialBalance < 0) {
+            throw new RuntimeException("Initial balance must be more than zero");
         }
+        validateAccountNumber(accountNumber);
+        setAccountNumber(accountNumber);
         count++;
     }
-    //random account number generating and validation
-    public CheckingAccount(double initialBalance, int accountnumber) {
-        this.initialBalance = initialBalance;
-        this.accountnumber = accountnumber;
-        if(initialBalance> 0){
-
-            accountnumber =  ((int)((Math.random() * 90000000)+10000000));
-
-            if( String.valueOf(accountnumber).length()== 8){
-                System.out.println("Accountnumber :" + accountnumber);
-            }
-            else{
-                throw new IllegalArgumentException(Integer.toString(accountnumber) + "accountnumber not valid");        }
-            }
-
-
-    }
-
-
-    //if account number is not given
-    public void accountnumbernotgiven(){
-
-        if(initialBalance> 0){
-
-            accountnumber =  ((int)((Math.random() * 90000000)+10000000));
-
-
-            System.out.println("Account nmuber :" + accountnumber);
-
-
-
+    public CheckingAccount(double initialBalance) {
+        if (initialBalance < 0) {
+            throw new RuntimeException("Initial balance must be more than zero");
         }
-
-
-
-
-        }
-
-
-
-
-    //getter and setter methods
-
-    public int getAccountNumber(){
-        return accountnumber;
-    }
-    public void setAccountNumber(int accountnumber){
-        this.accountnumber= accountnumber;}
-
-
-    public double getInitialBalance() {
-        return initialBalance;
+        int newAccountNumber = getRandomNewAccountNumber();
+        setAccountNumber(newAccountNumber);
+        count++;
     }
 
-    public void setInitialBalance(double initialBalance) {
-        this.initialBalance = initialBalance;
-
-    }
-    public double getFeeCharged() {
-        return feeCharged;
-    }
-
-    public void setFeeCharged(double feeCharged) {
-        this.feeCharged = feeCharged;
-    }
-    public int getCount() {
+    public static int getCount() {
         return count;
     }
-    //public void setCount(int count) {CheckingAccount.count = count;}
-//methods
+
+    private void validateAccountNumber(int accountNumber) {
+        String accountNumberString = String.valueOf(accountNumber);
+        if (accountNumberString.length() != 8) {
+            throw new IllegalArgumentException("Account number should be 8 digits" + accountNumberString);
+        }
+        for (int i = 0; i < allAccountNumbers.length; i++) {
+            if (allAccountNumbers[i] == accountNumber) {
+                throw new IllegalArgumentException("Account Number is duplicate" + accountNumberString);
+            }
+        }
+    }
+
+    private int getRandomNewAccountNumber() {
+        int accountNumber = getRandomAccountNumber();
+        for (int i = 0; i < allAccountNumbers.length; i++) {
+            if (allAccountNumbers[i] == accountNumber) {
+                accountNumber = getRandomAccountNumber();
+                i = 0;
+            }
+        }
+        return accountNumber;
+    }
+
+    private int getRandomAccountNumber() {
+        Random r = new Random();
+        int low = 10000000;
+        int high = 99999999;
+        int result = r.nextInt(high - low) + low;
+        return result;
+    }
+
     public void credit(double amount) {
         if (amount < 0) {
         } else {
@@ -101,6 +77,28 @@ public class CheckingAccount {
         }
     }
 
+    public double getInitialBalance() {
+        return initialBalance;
+    }
 
-   // int aNumber = (int)((Math.random() * 90000000)+10000000);
+    public void setInitialBalance(double initialBalance) {
+        this.initialBalance = initialBalance;
+
+    }
+
+    public double getFeeCharged() {
+        return feeCharged;
+    }
+
+    public void setFeeCharged(double feeCharged) {
+        this.feeCharged = feeCharged;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
 }
