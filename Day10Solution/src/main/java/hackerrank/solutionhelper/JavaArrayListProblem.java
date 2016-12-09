@@ -21,7 +21,6 @@ public class JavaArrayListProblem {
             System.out.println();
         }
 
-
         //Query part
         Scanner scanner = new Scanner(System.in);
         int queries = scanner.nextInt();

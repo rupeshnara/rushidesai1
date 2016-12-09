@@ -1,6 +1,7 @@
 package driver;
 
 import bank.child.SavingsAccount;
+import bank.exceptions.AccountNumberLengthNotValid;
 
 import java.util.Date;
 
@@ -8,7 +9,7 @@ import java.util.Date;
  * Created by desair4 on 12/4/2016.
  */
 public class Test {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws AccountNumberLengthNotValid {
       /*  BaseAccount sAccount=new SavingsAccount(1000,25);
         BaseAccount cAccount=new CheckingAccount(2000);
         sAccount.credit(2500.0);
@@ -50,5 +51,3 @@ public class Test {
     }
 
 }
-
-
