@@ -1,11 +1,14 @@
 package banking;
 
+import java.util.ArrayList;
+
 /**
  * Created by saikrishnareddy on 12/4/2016.
  */
 public class CheckingAccount {
 
     private static CheckingAccount checkingAccount;
+    private static ArrayList<Long> accountNumberList = new ArrayList<Long>();
     final int fee = 5;
     long accountnumber;
     private double initialBalance;
@@ -15,10 +18,27 @@ public class CheckingAccount {
 
 
     private CheckingAccount(double initialBalance) {
+
         setInitialBalance(initialBalance);
     }
 
-    public static CheckingAccount initialize(double initialBalance) {
+    public static CheckingAccount initialize(double initialBalance, long accountnumber) throws Exception {
+
+        if (accountnumber < 10000000 && accountnumber > 99999999) {
+            throw new Exception("Given Account number is invalid");
+            //System.out.println("Given Account number is invalid");
+            //return null;
+        } else {
+            System.out.println("Given Account number is:" + accountnumber);
+            if (accountNumberList.contains(accountnumber)) {
+                throw new Exception("Account number already exists");
+                //System.out.println("Account number already exists");
+                //return  null;
+            } else {
+                accountNumberList.add(accountnumber);
+                System.out.println("Account with" + accountnumber + "created sucessfully");
+            }
+        }
         if (initialBalance < 0) {
             System.out.println("Please enter valid amount");
             return null;
@@ -27,7 +47,29 @@ public class CheckingAccount {
         return checkingAccount;
     }
 
-    ;
+    public static CheckingAccount initialize(double initialBalance) throws Exception {
+        boolean flag = false;
+        for (long i = 10000000; i <= 99999999; i++) {
+            if (!accountNumberList.contains(i)) {
+                flag = true;
+                accountNumberList.add(i);
+                System.out.println("Account with" + i + "created sucessfully");
+                break;
+            }
+        }
+        if (!flag) {
+            throw new Exception("There are no awailable 8 digit Account numbers");
+            //System.out.println("There are no awailable 8 digit Account numbers");
+            //return null;
+        }
+
+        if (initialBalance < 0) {
+            System.out.println("Please enter valid amount:");
+            return null;
+        }
+        checkingAccount = new CheckingAccount(initialBalance);
+        return checkingAccount;
+    }
 
     public long getAccountnumber() {
         return accountnumber;
