@@ -35,6 +35,10 @@ public class CheckingAccount extends BaseAccount {
         }
     }
 
+    public void print() {
+        System.out.println("Checking");
+    }
+
     public double getTransactionFees() {
         return transactionFees;
     }

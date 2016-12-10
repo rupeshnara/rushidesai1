@@ -1,5 +1,9 @@
 package driver;
 
+//import bank.BaseAccount;
+
+import bank.BaseAccount;
+import child.CheckingAccount;
 import child.SavingsAccount;
 
 import java.util.Date;
@@ -24,7 +28,6 @@ public class Test {
         String savingsAccountStringRepresantation = savingsAccount.toString();
         System.out.println(savingsAccountStringRepresantation);
 
-
         Date d = new Date();
 
         String s = d.toString();
@@ -47,6 +50,14 @@ public class Test {
         does 2 exist in prevAccountList ?
 */
         // System.out.println("To encode it with base 64 :" +);
+
+        BaseAccount baseAccount = new BaseAccount(12, "1212");
+        baseAccount.print();
+        baseAccount = new SavingsAccount(12, 1212);
+        baseAccount.print();
+        baseAccount = new CheckingAccount(12, 1212);
+        baseAccount.print();
+
     }
 
 }
