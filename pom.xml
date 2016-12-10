@@ -20,14 +20,14 @@
         <module>Day4Solution</module>
         <module>Day5</module>
         <module>Day6</module>
-        <module>Day5Solutions</module>
-        <module>Day6Solution</module>
         <module>Day7</module>
+        <module>Day6Solution</module>
         <module>Day8</module>
         <module>Day9</module>
         <module>Day10</module>
         <module>Day10Solution</module>
-        <module>Day9Solution</module>
+        <module>Day11</module>
+        <module>Day11Solution</module>
     </modules>
 
     <build>

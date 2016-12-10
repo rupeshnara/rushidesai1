@@ -36,6 +36,10 @@ public class SavingsAccount extends BaseAccount {
         }
     }
 
+    public void print() {
+        System.out.println("Saving");
+    }
+
     public double calculateInterest() {
         return initialBalance * interestRate / 100;
     }

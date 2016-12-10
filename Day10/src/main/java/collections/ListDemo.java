@@ -74,8 +74,10 @@ public class ListDemo {
         System.out.println(list.get(3));        //Running time for this call is 'constant'
 
 
+        //I am changing to what it refers. SO earlier it was refering to ArrayList now it Refers to LinkedList object
         list = new LinkedList();
         //What we can access, depends on the reference variable type.
+        //SO besically what vraibles, methods etc we can access depends on List in our example.
         list.add(12);
         list.add(100);
         list.add("String");
@@ -84,6 +86,10 @@ public class ListDemo {
 
         System.out.println(list);
         System.out.println(list.get(3));    //running time for this call is 'n', where n = 3 here
+
+        //But what gets executed depends on type of Object the variable is referncing.
+        //class implements a interface -> that class is also a child of that interface
+        //Polymorphism can be achieved, whenever there is Inheritance. Whenever the reference variable is of type parent, and Object is itself or one of its sublcass
 
 
         //Penalty paid for getting billionth element in ArrayList is say 3 ms, then same penatly is for gettign 1st element
