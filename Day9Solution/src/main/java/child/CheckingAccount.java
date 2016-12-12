@@ -17,15 +17,6 @@ public class CheckingAccount extends BaseAccount {
         super(initialBalance, accountNumberClient);
     }
 
-    public void credit(double amount) {
-        if (amount <= 0) {
-            //needs to throw error if amount<0
-            throw new RuntimeException("Please ensure the amount to be deposited is not negative");
-        } else {
-            initialBalance = initialBalance + amount;
-        }
-    }
-
     public void debit(double amount) {
         if (initialBalance < amount + transactionFees) {
 

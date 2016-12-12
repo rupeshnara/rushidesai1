@@ -7,9 +7,9 @@ import java.util.List;
  */
 //public class GenericClass<Type extends Number> extends GenericParent<Type>{
 public class GenericClass<T> extends GenericParent<T> {
+    public T type;
     ///T -> Integer
     List<T> list;
-    public T type;
 
     public GenericClass() {
 

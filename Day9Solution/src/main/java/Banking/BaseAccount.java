@@ -81,6 +81,15 @@ public abstract class BaseAccount implements IAccount {
         return accountNumber;
     }
 
+    public void credit(double amount) {
+        if (amount <= 0) {
+            //needs to throw error if amount<0
+            throw new RuntimeException("Please ensure the amount to be deposited is not negative");
+        } else {
+            initialBalance = initialBalance + amount;
+        }
+    }
+
     public double getInitialBalance() {
         return initialBalance;
     }

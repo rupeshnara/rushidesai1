@@ -139,6 +139,9 @@ public class BaseAccount {
                 '}';
     }
 
+    public void print() {
+        System.out.println("Parent");
+    }
 
     static private class MyList {
         MyList nextItem;
@@ -152,9 +155,5 @@ public class BaseAccount {
         MyList(Integer accountNumber1) {
             accountNumber = accountNumber1;
         }
-    }
-
-    public void print() {
-        System.out.println("Parent");
     }
 }
