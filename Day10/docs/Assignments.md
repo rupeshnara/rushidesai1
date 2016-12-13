@@ -1,4 +1,4 @@
-#####Assignments are for you. 
+are for you. 
 Please be honest with yourself. If you don't understand please ask questions and try to 
 understand the concept
 
