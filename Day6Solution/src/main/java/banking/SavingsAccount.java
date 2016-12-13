@@ -1,5 +1,8 @@
 package banking;
 
+import java.util.Base64;
+import java.util.Date;
+
 /**
  * Created by saikrishnareddy on 12/4/2016.
  */
@@ -9,9 +12,11 @@ public class SavingsAccount extends BaseAccount {
     private double interestRate;
 
     public SavingsAccount(double initialBalance, double interestRate) {
+        super();
         setInitialBalance(initialBalance);
         setInterestRate(interestRate);
     }
+
 /*
     public double getInitialBalance() {
 

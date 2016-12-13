@@ -8,15 +8,23 @@ import java.util.Date;
  */
 public class BaseAccount {
 
+    public long accountNumber;
     protected double initialBalance;
     private String accountHash;
-    //long accountNumber;
 
     public BaseAccount() {
         String todaysDate = String.valueOf(new Date());
         Base64.Encoder encoder = Base64.getEncoder();
         byte[] bytes = encoder.encode(todaysDate.getBytes());
         this.accountHash = String.valueOf(bytes);
+    }
+
+    public long getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(long accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public String getAccountHash() {

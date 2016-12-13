@@ -9,6 +9,7 @@ public class CheckingAccount extends BaseAccount {
     //private double initialBalance;
 
     public CheckingAccount(double initialBalance) {
+        super();
         setInitialBalance(initialBalance);
     }
 
