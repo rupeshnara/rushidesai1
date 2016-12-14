@@ -2,6 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<<<<<<< HEAD
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>Day 3</groupId>
+    <artifactId>Day 3</artifactId>
+    <version>1.0-SNAPSHOT</version>
+=======
     <parent>
         <artifactId>training-parent</artifactId>
         <groupId>training.java.core</groupId>
@@ -10,6 +17,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>Day3</artifactId>
+>>>>>>> ef5d4b6c6fb961c2f26822fcb2b8e4a99605673e
 
 
 </project>
