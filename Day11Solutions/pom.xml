@@ -9,11 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Day9</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>Day9Solution</module>
-    </modules>
+    <artifactId>Day11Solutions</artifactId>
 
 
 </project>
