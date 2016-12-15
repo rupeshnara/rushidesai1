@@ -1,14 +1,17 @@
 package bank;
 
-import bank.child.SavingsAccount;
-
 /**
  * Created by desair4 on 12/9/2016.
  */
 public class AccountHelper {
 
-    void debitMoney(SavingsAccount savingsAccount, double debitAmount) {
-        savingsAccount.debit(debitAmount);
+    public static void debitMoney(BaseAccount baseAccount, double debitAmount) {
+        //baseAccount = savingsAccount
+        //baseAccount = checkingAccount
+
+        //savingsAccount.debit(10)
+        //checkingAccount.debit(10)
+        baseAccount.debit(debitAmount);
     }
 
     /*void debitMoney(CheckingAccount savingsAccount, double debitAmount){

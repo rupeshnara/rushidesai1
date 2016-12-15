@@ -28,6 +28,9 @@
         <module>Day10Solution</module>
         <module>Day11</module>
         <module>Day12</module>
+        <module>Day13</module>
+        <module>Day14</module>
+        <module>Day15Web</module>
     </modules>
 
     <build>

@@ -12,9 +12,9 @@ public class ConditionalPrinting {
     * */
 
     public static void printCond(int[] a, IPredicate predicate) {
-        // predicate = PrintEven
-        // predicate = PrintOdd
-        // predicate = PrintThree
+        // predicate = new PrintEven()
+        // predicate = new PrintOdd()
+        // predicate = new PrintThree()
 
         //1 -> print all even nos, 2 -> print all odd nos.
         for (int i = 0; i < a.length - 1; i++) {
@@ -22,6 +22,8 @@ public class ConditionalPrinting {
 //            System.out.println("your code");
             //client tells me if I should print this number or not.
 //            System.out.println("client code");//someConditionByClient
+
+            //
             boolean doPrint = predicate.doPrint(i);
             if (doPrint)
                 System.out.println(i);

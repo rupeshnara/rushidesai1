@@ -1,5 +1,7 @@
 package driver;
 
+import bank.AccountHelper;
+import bank.child.CheckingAccount;
 import bank.child.SavingsAccount;
 import bank.exceptions.AccountNumberLengthNotValid;
 
@@ -21,10 +23,10 @@ public class Test {
         System.out.println("Account Number ...... Checking Account  : " + cAccount.accountNumber);*/
 
         SavingsAccount savingsAccount = new SavingsAccount(12, 1233434);
+        CheckingAccount checkingAccount = new CheckingAccount(2000);
 
         String savingsAccountStringRepresantation = savingsAccount.toString();
         System.out.println(savingsAccountStringRepresantation);
-
 
         Date d = new Date();
 
@@ -32,6 +34,12 @@ public class Test {
         System.out.println(s);
 
 
+        AccountHelper.debitMoney(savingsAccount, 10);
+        //savingsAccount.debit()
+
+
+        AccountHelper.debitMoney(checkingAccount, 10);
+        //checkingAccount.debit()
 /*        BaseAccount account1 = new SavingsAccount();
         BaseAccount account2 = new SavingsAccount();*/
 /*
