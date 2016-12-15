@@ -3,7 +3,6 @@ package servlet;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,6 +37,8 @@ public class HelloWorldServlet extends HttpServlet {
 
         ServletContext sc = getServletConfig().getServletContext();
         RequestDispatcher rd = sc.getRequestDispatcher("/views/html/hello.html");
-        rd.forward(req,resp);
+        rd.forward(req, resp);
     }
+
+
 }

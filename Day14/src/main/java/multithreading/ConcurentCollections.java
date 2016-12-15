@@ -46,7 +46,5 @@ public class ConcurentCollections {
 
         //jdk 7
         //Fork-Join -> Newer hard ware is multi core, Fork-Join allows you to use all cores for running your application.
-
-
     }
 }
