@@ -1,12 +1,10 @@
 package Banking.child;
 
-import Banking.exceptions.AccountNumberLengthNotValidException;
-import Banking.exceptions.DuplicateAccountNumberException;
-import Banking.exceptions.InitialBalanceNotValidException;
+import Banking.exceptions.*;
 import Banking.interfaces.IAccount;
 import Banking.parent.BaseAccount;
 
-public class CheckingAccount extends BaseAccount {
+public class CheckingAccount extends BaseAccount implements IAccount {
 
     private int transactionFees = 5;
 

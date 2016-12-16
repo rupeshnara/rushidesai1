@@ -1,11 +1,10 @@
 package Banking.child;
 
-import Banking.exceptions.AccountNumberLengthNotValidException;
-import Banking.exceptions.DuplicateAccountNumberException;
-import Banking.exceptions.InitialBalanceNotValidException;
+import Banking.exceptions.*;
+import Banking.interfaces.IAccount;
 import Banking.parent.BaseAccount;
 
-public class SavingAccount extends BaseAccount {
+public class SavingAccount extends BaseAccount implements IAccount{
 
     private double interestRate;
 
