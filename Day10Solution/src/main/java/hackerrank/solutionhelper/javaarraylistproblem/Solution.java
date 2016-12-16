@@ -16,8 +16,6 @@ public class Solution {
     * pass all test cases and then create new File here in same package called 'SolutionFinal' with your entire 'Sccucesfull' code
     * which passes all test cases from hacker rank link.
     * */
-
-
     public static void main(String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         List<List<Integer>> input = readInput();
@@ -55,11 +53,11 @@ public class Solution {
     }
 
     static List<List<Integer>> readInput() {
-        int lines = scanner.nextInt();
+        int lines = scanner.nextInt();  //read first line
 
         List<List<Integer>> xLinkedList = new LinkedList<>();
         for (int i = 0; i < lines; i++) {
-            int totalNumbers = scanner.nextInt();
+            int totalNumbers = scanner.nextInt(); //First number in that line
             List<Integer> yLinkedList = new LinkedList<>();
             for (int j = 0; j < totalNumbers; j++) {
                 yLinkedList.add(scanner.nextInt());

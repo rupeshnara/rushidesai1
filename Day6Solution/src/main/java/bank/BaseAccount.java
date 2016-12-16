@@ -29,10 +29,10 @@ public class BaseAccount {
     // Validate initial balance and generate a random unique account number
     public BaseAccount(double initialBalance, String accountHash1) {
         // Validation of initial balance
-        if (validateInitialBalance()) {
+     /*   if (validateInitialBalance()) {
             throw new RuntimeException("Initial balance must be more than zero");
         }
-
+*/
         // Generate unique account number
         accountNumber = generateAccountNumber();
         isDuplicateAccountNumber(accountNumber);    //ideally we wont do this if we assume that the random generator draws numbers from uniform distribution and the period of the generator is big enough (which incase of java period is 2^48, so pretty huge)
@@ -45,14 +45,14 @@ public class BaseAccount {
     // Validate the initial balance and check if account number has 8 digits
     public BaseAccount(double initialBalance, Integer accountNumberClient, String accountHash1) {
         // Validation of initial balance
-        if (validateInitialBalance()) {
+      /*  if (validateInitialBalance()) {
             throw new RuntimeException("Initial balance must be more than zero");
-        }
+        }*/
 
         // Check if account number has 8 digits
-        if (validateNumberOfDigits()) {
+        /*if (validateNumberOfDigits()) {
             throw new RuntimeException("Account Number should have exactly 8 digits");
-        }
+        }*/
 
         isDuplicateAccountNumber(accountNumberClient);
         accountNumber = accountNumberClient;
@@ -153,5 +153,9 @@ public class BaseAccount {
         MyList(Integer accountNumber1) {
             accountNumber = accountNumber1;
         }
+    }
+
+    public void print() {
+        System.out.println("Parent");
     }
 }
