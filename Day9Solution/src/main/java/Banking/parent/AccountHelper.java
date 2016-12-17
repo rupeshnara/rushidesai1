@@ -3,9 +3,6 @@ package Banking.parent;
 import Banking.child.*;
 import Banking.exceptions.*;
 
-/**
- * Created by bhumi on 12/6/2016.
- */
 public class AccountHelper{
 
     // create debit money method which calls Saving's account debit method when
