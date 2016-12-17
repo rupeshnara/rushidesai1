@@ -9,10 +9,10 @@
         <relativePath>../WebParent</relativePath>
     </parent>
 
-    <artifactId>Day15WebTest</artifactId>
+    <artifactId>Day16Web</artifactId>
     <packaging>war</packaging>
 
-    <name>Day15WebTest Maven Webapp</name>
+    <name>Day16Web Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
     <build>
@@ -26,7 +26,6 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>Day15WebTest</finalName>
+        <finalName>Day16Web</finalName>
     </build>
-
 </project>
