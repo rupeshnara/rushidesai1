@@ -1,12 +1,15 @@
 package servlet;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.Enumeration;
 
 /**
  * Created by desair4 on 12/14/2016.
@@ -25,17 +28,33 @@ public class HelloWorldServlet extends HttpServlet {
     * 3. doGet, doPost etc.. is called depending upon http Method type
     *
     * */
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+    }
 
     /*
-    * www.localhost:8084/application1/servletUrl?a=b
-    *
-    * www.localhost:8084 = address of your computer   -> Mandatory
-    * /applicationUrl -> optional
-    * /servletUrl -> mandatory (kinda optional)
-    *
-    * */
+        * www.localhost:8084/application1/servletUrl?a=b
+        *
+        * www.localhost:8084 = address of your computer   -> Mandatory
+        * /applicationUrl -> optional
+        * /servletUrl -> mandatory (kinda optional)
+        *
+        * */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Enumeration params = req.getParameterNames();
+        String paramName = null;
+        String[] paramValues = null;
+
+        while (params.hasMoreElements()) {
+            paramName = (String) params.nextElement();
+            paramValues = req.getParameterValues(paramName);
+            System.out.print("\nParameter name is " + paramName);
+            for (int i = 0; i < paramValues.length; i++) {
+                System.out.println(", value " + i + " is " + paramValues[i].toString());
+            }
+        }
 
      /*   ServletOutputStream out = resp.getOutputStream();
         out.print("<html><head><title>My Servlet</title>");
@@ -49,6 +68,10 @@ public class HelloWorldServlet extends HttpServlet {
 
         ServletContext sc = getServletConfig().getServletContext();
         RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/views/html/hello.html");
+//        RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/views/jsp/dynamicHello.jsp");
+
+        LocalDateTime timePoint = LocalDateTime.now();
+        req.setAttribute("currentTimestamp", timePoint);
         rd.forward(req, resp);
     }
 

@@ -30,8 +30,7 @@
         <module>Day12</module>
         <module>Day13</module>
         <module>Day14</module>
-        <module>Day15Web</module>
-        <module>Day15WebTest</module>
+        <module>WebParent</module>
     </modules>
 
     <build>
