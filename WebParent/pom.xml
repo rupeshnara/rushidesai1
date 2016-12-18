@@ -11,12 +11,6 @@
     <url>http://maven.apache.org</url>
 
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
         <!--This will be supplied by tomcat7-maven-plugin-->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -36,9 +30,10 @@
         <module>../Day15Web</module>
         <module>../Day15WebTest</module>
         <module>../Day16Web</module>
+        <module>../Day17Web</module>
     </modules>
 
-    <!--<build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
@@ -46,8 +41,11 @@
                 <version>2.2</version>
                 <configuration>
                     <path>/test</path>
+                    <server>tomcat-development-server</server>
+                    <port>8084</port>
                 </configuration>
             </plugin>
         </plugins>
-    </build>-->
+        <finalName>WebParent</finalName>
+    </build>
 </project>
