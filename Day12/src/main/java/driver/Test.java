@@ -1,9 +1,10 @@
 package driver;
 
-import bank.AccountHelper;
-import bank.child.CheckingAccount;
-import bank.child.SavingsAccount;
-import bank.exceptions.AccountNumberLengthNotValid;
+//import bank.BaseAccount;
+
+import bank.BaseAccount;
+import child.CheckingAccount;
+import child.SavingsAccount;
 
 import java.util.Date;
 
@@ -11,7 +12,7 @@ import java.util.Date;
  * Created by desair4 on 12/4/2016.
  */
 public class Test {
-    public static void main(String[] args) throws AccountNumberLengthNotValid {
+    public static void main(String[] args) {
       /*  BaseAccount sAccount=new SavingsAccount(1000,25);
         BaseAccount cAccount=new CheckingAccount(2000);
         sAccount.credit(2500.0);
@@ -23,7 +24,6 @@ public class Test {
         System.out.println("Account Number ...... Checking Account  : " + cAccount.accountNumber);*/
 
         SavingsAccount savingsAccount = new SavingsAccount(12, 1233434);
-        CheckingAccount checkingAccount = new CheckingAccount(2000);
 
         String savingsAccountStringRepresantation = savingsAccount.toString();
         System.out.println(savingsAccountStringRepresantation);
@@ -34,12 +34,6 @@ public class Test {
         System.out.println(s);
 
 
-        AccountHelper.debitMoney(savingsAccount, 10);
-        //savingsAccount.debit()
-
-
-        AccountHelper.debitMoney(checkingAccount, 10);
-        //checkingAccount.debit()
 /*        BaseAccount account1 = new SavingsAccount();
         BaseAccount account2 = new SavingsAccount();*/
 /*
@@ -56,6 +50,16 @@ public class Test {
         does 2 exist in prevAccountList ?
 */
         // System.out.println("To encode it with base 64 :" +);
+
+        BaseAccount baseAccount = new BaseAccount(12, "1212");
+        baseAccount.print();
+        baseAccount = new SavingsAccount(12, 1212);
+        baseAccount.print();
+        baseAccount = new CheckingAccount(12, 1212);
+        baseAccount.print();
+
     }
 
 }
+
+
