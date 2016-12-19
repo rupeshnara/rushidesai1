@@ -1,0 +1,62 @@
+Assignment
+====================
+
+#####Please create a module called Day18WebSolutions to write all your solutions
+
+#####We will start to create our own web application for mini bank.
+
+Here are the specifications:
+
+Utils
+----
+1. training.bootstrap.UserBootstrap
+    1. This will have a static final map with key userName and value password. Initialize few entries in map against which your users will be validated.
+2. training.authentication.helper.AuthenticationUserHelper
+    1. contains a method boolean authenticateUser(String,String) -> that validates user against UserBootstrap
+3. training.bootstrap.AccountBootstrap
+    1. This will have a static final map with key accountNumber and value CheckingAccount or SavingAccount. 
+    2. Initialize 5 checking account and 5 savings account entries in map.
+
+
+Views
+---
+Folder structure :
+1. views/html/login/login.html -> Elements 
+    1. form -> method=post, action -> /login/loginSubmit 
+    2. input -> User Name
+    3. input -> Password
+    4. submit button -> Button Name -> Submit
+
+2. views/html/login/loginFailure.html
+3. views/html/account/accountServlet.html
+    1. form -> method=post, action -> /account/getAccount 
+    2. input -> Account Number
+    4. submit button -> Button Name -> Submit
+4. views/html/account/accountNotFound.html
+    1. text -> Account Not found
+5. views/html/account/account.html
+      1. text -> toString of account
+6. views/html/account/allAccounts.jsp
+      1. text -> table containing three columns 
+            1. Account Number -> contains accountNumber 
+            2. Type of account -> contains 'Checking' or 'Saving' depending on type of account
+            3. Current Balance -> contains currentBalance.
+
+Servlets
+---
+1. /login (GET) -> LoginServlet
+    1. Renders login.html
+2. /login/loginSubmit (POST) -> LoginServlet
+    1. validates input and authenticates user against AuthenticationUserHelper class.
+    2. if user is validated successfully -> redirect user to /account/accountSearch 
+    3. if user is NOT validated -> show loginFailure.html
+3. /account/* (GET,POST)-> AccountServlet
+    1. /account/accountSearch (GET) ->
+        1. servlet shows accountSearch.html
+    2. /account/getAccount (POST) -> 
+        1. searches the account and returns the account.
+        2. if account exists -> servlet redirects to account.html
+        3. if account does NOT exists -> servlet shows the accountNotFound.html
+    3. /account/allAccounts (GET) -> 
+        1. servlet prepares model and sends it to allAccounts.jsp and shows it 
+        2. model should contain all accounts.

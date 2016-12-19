@@ -31,6 +31,8 @@
         <module>../Day15WebTest</module>
         <module>../Day16Web</module>
         <module>../Day17Web</module>
+        <module>../Day18Web</module>
+        <module>../Day18WebJDBC</module>
     </modules>
 
     <build>

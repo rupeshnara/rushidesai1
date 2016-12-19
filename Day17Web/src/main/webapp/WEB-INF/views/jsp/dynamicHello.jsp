@@ -20,10 +20,12 @@
 <body>
 Ssup !!
 
+<%--Declaration--%>
 <%!
     private javax.servlet.jsp.JspWriter out;
 %>
 
+<%--Scriplets--%>
 <%
     //Scriplets
     //System.out.println("Hello");
@@ -34,6 +36,7 @@ Ssup !!
 <h3>Current time is : <%= date %>
 </h3>
 
+<%--Expressions--%>
 <%= request.getRemoteHost()%><br/>
 <%= request.getAttribute("currentTimestamp")%>
 
