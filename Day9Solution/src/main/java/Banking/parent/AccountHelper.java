@@ -9,9 +9,9 @@ public class AccountHelper{
     // Saving object is called and calls checking account's debit  method when checking object is called
     public void debitMoney(double amount) {
 
-        //AccountHelper sAccountDebit = new SavingAccount(double amount1);
-        //AccountHelper cAccountDebit = new CheckingAccount(double amount2);
-
+        /*AccountHelper sAccountDebit = new SavingAccount();
+        AccountHelper cAccountDebit = new CheckingAccount(double amount2);
+*/
 
     }
 }
