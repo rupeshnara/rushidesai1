@@ -1,19 +1,31 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <artifactId>WebParent</artifactId>
         <groupId>training.java.core</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../WebParent</relativePath>
+        <relativePath>../WebParent/pom.xml</relativePath>
     </parent>
-
-    <artifactId>Day16Web</artifactId>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>Day17Web</artifactId>
     <packaging>war</packaging>
-
-    <name>Day16Web Maven Webapp</name>
+    <name>Day17Web Maven Webapp</name>
     <url>http://maven.apache.org</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>training.java.core</groupId>
+            <artifactId>Day12</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
+    </dependencies>
 
     <build>
         <plugins>
@@ -22,13 +34,12 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <path>/test</path>
+                    <path>/day17</path>
                     <server>tomcat-development-server</server>
                     <port>8084</port>
-                    <!--<ajpPort>8084</ajpPort>-->
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>Day16Web</finalName>
+        <finalName>Day17Web</finalName>
     </build>
 </project>

@@ -11,6 +11,16 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
     <modules>
         <module>Day1</module>
         <module>Day2</module>
@@ -31,6 +41,7 @@
         <module>Day13</module>
         <module>Day14</module>
         <module>WebParent</module>
+        <module>WebUtils</module>
     </modules>
 
     <build>
