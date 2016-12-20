@@ -2,15 +2,16 @@ package training.login;
 
 
 import training.login.authentication.AuthenticateUser;
+import training.session.SessionBootstrap;
+import training.session.domain.UserSession;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
+import java.util.Random;
 
 /**
  * Created by desair4 on 12/18/2016.
@@ -34,9 +35,6 @@ public class LoginServlet extends HttpServlet {
     *
     *  localHost -> isAuthenticated=true
     *  google   -> DV=23234343434345454
-    *
-    *
-    *
     * */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -53,7 +51,15 @@ public class LoginServlet extends HttpServlet {
         Cookie cookie2 = new Cookie("testingDomain1","localHost.subdomain");
         cookie.setDomain("localHost.subdomain");
         resp.addCookie(cookie2);*/
+        String pathInfo = req.getPathInfo();
+
         ServletContext sc = getServletConfig().getServletContext();
+        if (pathInfo != null && pathInfo.equals("/loginFailure")) {
+            RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/views/html/login/loginFailure.html");
+            rd.forward(req, resp);
+        }
+
+
         RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/views/html/login/login.html");
         rd.forward(req, resp);
 
@@ -62,25 +68,43 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("LoginServlet");
-        String pathInfo = req.getPathInfo();
-
-        if (pathInfo.equals("/login1")) System.out.println("login1");    //will print login1 if url is /login/login1
-        if (pathInfo.equals("/login2")) System.out.println("login2");    //will print login1 if url is /login/login1
 
         String userName = req.getParameter("userName");
         String password = req.getParameter("password");
         ServletContext sc = getServletConfig().getServletContext();
-        RequestDispatcher rd = null;
-        boolean isAuthenticated = AuthenticateUser.authenticateUser(userName, password);
+        boolean isAuthenticated = AuthenticateUser.authenticateUserWithUserNamePassword(userName, password);
         if (isAuthenticated) {
             //if authentication successful
-//            rd = sc.getRequestDispatcher("/WEB-INF/views/html/account/AccountSearch.html");   //we are straight going to a specific page
-//            rd = sc.getRequestDispatcher("/accountSearch");   //we are straight going to a specific page
-            resp.sendRedirect("/accountSearch");    //going back to the browser and telling browser to go to "/accountSearch"
+
+            //------------Manual way to track session--------------------
+            UserSession userObject = new UserSession(userName);     //Step1 : Create session  object that will be specific to this user
+            Integer sessionID = generateSessionId();                //Step2 : Generate sessionID that will serve like a token that user needs to bring back to server every-time user makes a call to server
+            SessionBootstrap.SESSION_MAP.put(sessionID, userObject); //Step3 : attach the sessionId with userSession object so that next time a request comes with this sessionId we can retrieve the userSession object specific to this user.
+            addSessionCookie(resp, sessionID);                      //Step4 : add cookie so that user does not have to worry about bringing the sessionId back every-time he makes the request. Since it is a cookie, browser will make sure to send it everytime a call is made to this server
+            //------------End Manual way to track session--------------------
+
+            //------------Better and Automatic way to track session---------------------
+            //JEE already does all the we did earlier automatically
+            HttpSession session = req.getSession(); //If session already exists then this will return that session else This will do all 4 steps mentioned in manual way (i.e. Create new session Object, create sessionId, create Cookie) and return the session object.
+            session.setAttribute("isAuthenticated", true);  //we do this to make sure future requests know that this user is authenticated
+            //------------End Automatic way to track session---------------------
+
+            resp.sendRedirect("/account/accountSearch");    //going back to the browser and telling browser to go to "/accountSearch"
         } else {
             //if authentication failure
+            RequestDispatcher rd = null;
             rd = sc.getRequestDispatcher("/WEB-INF/views/html/login/loginFailure.html");
             rd.forward(req, resp);
         }
+    }
+
+    private void addSessionCookie(HttpServletResponse resp, Integer sessionID) {
+        Cookie cookie = new Cookie("sessionID", sessionID.toString());
+        resp.addCookie(cookie);
+    }
+
+    private Integer generateSessionId() {
+        Random random = new Random();
+        return random.nextInt();
     }
 }

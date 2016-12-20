@@ -7,7 +7,7 @@ import training.bootstrap.UserBootstrap;
  */
 public class AuthenticateUser {
 
-    public static boolean authenticateUser(String userName, String password) {
+    public static boolean authenticateUserWithUserNamePassword(String userName, String password) {
         String password1 = UserBootstrap.USER_ID_PASS_REPO_MAP.get(userName);
 
         if (password1 == null) return false;
