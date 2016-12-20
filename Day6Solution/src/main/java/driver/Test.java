@@ -25,6 +25,8 @@ public class Test {
 
         SavingsAccount savingsAccount = new SavingsAccount(12000);
 
+        SavingsAccount savingsAccount = new SavingsAccount(12, 1233434);
+
         String savingsAccountStringRepresantation = savingsAccount.toString();
         System.out.println(savingsAccountStringRepresantation);
 

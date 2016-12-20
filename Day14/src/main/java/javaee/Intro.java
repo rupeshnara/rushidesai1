@@ -13,7 +13,7 @@ public class Intro {
         //JEE - Java enterprise edition
         //Spring or Hibernate or anything that we learn from here on is Just reading its Documentation !!
 
-        //JEE is collections of numerous technologies which allow you to transfer information -> Db to user
+        //JEE is collections of numerous technologies (frameworks, each trying to solve a different problem) which allow you to transfer information -> Db to user
         //JEE -> Comes out with JSR's -> Java specification
         //What is JSR specification ? Combination of Interfaces and Specification document.
 
@@ -34,6 +34,7 @@ public class Intro {
         //Then you will override few methods.
         //These methods will be called by server, when needed.
         //These methods will return a response to the server, and server will then return it to user.
+        //service() //can be used to serve any http methods
         //doGet
         //doPost
         //doDelete etc. etc.
