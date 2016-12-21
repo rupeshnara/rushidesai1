@@ -23,6 +23,9 @@
                 <version>2.2</version>
                 <configuration>
                     <path>/test</path>
+                    <server>tomcat-development-server</server>
+                    <port>8084</port>
+                    <!--<ajpPort>8084</ajpPort>-->
                 </configuration>
             </plugin>
         </plugins>
