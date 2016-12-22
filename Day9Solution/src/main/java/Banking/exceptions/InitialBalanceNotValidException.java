@@ -5,6 +5,9 @@ package Banking.exceptions;
  */
 public class InitialBalanceNotValidException extends Exception {
 
+    public InitialBalanceNotValidException(){
+
+    }
     public InitialBalanceNotValidException(String message) {
         super(message);
     }
