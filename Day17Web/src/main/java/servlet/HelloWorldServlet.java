@@ -49,8 +49,8 @@ public class HelloWorldServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         /*
-        * If I want to retrieve data for specific acocunt and return details of that
-        * 1. From browser i neeed to pass some information (in this case AccountNumber)
+        * If I want to retrieve data for specific account and return details of that
+        * 1. From browser i need to pass some information (in this case AccountNumber)
         * 2. I need retrieve accountNumber here
         * 3. Use that accountNumber to fetch data from database //Will not look at this step today
         * 4. Send the information (data/model) to JSP

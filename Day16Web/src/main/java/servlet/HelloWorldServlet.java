@@ -120,8 +120,6 @@ public class HelloWorldServlet extends HttpServlet {
     *      Cons : We are dependent on the user to bring the token back.
     *
     *      Most of the data is held by server, transfering only whats needed.
-    *
-    *
     * */
 
 }
