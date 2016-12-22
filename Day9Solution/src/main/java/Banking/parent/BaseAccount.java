@@ -29,7 +29,7 @@ public abstract class BaseAccount implements IAccount {
     public BaseAccount(double initialBalance) throws InitialBalanceNotValidException{
 
         // Validation of initial balance
-        if (!isInitialBalanceValid()) {
+        if (!isInitialBalanceValid(initialBalance)) {
             throw new InitialBalanceNotValidException("Initial balance must be more than zero");
         }
 
@@ -48,18 +48,18 @@ public abstract class BaseAccount implements IAccount {
             AccountNumberLengthNotValidException, DuplicateAccountNumberException{
 
         // Validation of initial balance
-        if (!isInitialBalanceValid()) {
+        if (!isInitialBalanceValid(initialBalance)) {
             throw new InitialBalanceNotValidException("Initial balance must be more than zero");
         }
 
         // Check if account number has 8 digits
-        if (isNumberOfDigitsValid(accountNumberClient)) {
+        if (!isNumberOfDigitsValid(accountNumberClient)) {
             throw new AccountNumberLengthNotValidException("Account Number should have exactly 8 digits");
         }
 
         // Check for duplicate account number
 
-        if (isDuplicateAccountNumber(accountNumberClient)){
+        if (!isDuplicateAccountNumber(accountNumberClient)){
             throw new DuplicateAccountNumberException("Account Number already exists. Please provide another account number");
         }
 
@@ -70,14 +70,13 @@ public abstract class BaseAccount implements IAccount {
     // Check for duplicate account number
     private boolean isDuplicateAccountNumber(Integer accountNumber) {
 
-
         for (int i = 0; i < allAccountNumbersArray.size(); i++){
 
             if (allAccountNumbersArray.get(i).equals(accountNumber)) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     // count account creation instances by client
@@ -93,12 +92,16 @@ public abstract class BaseAccount implements IAccount {
 
         int digits = validateAccountNumber.toString().length();
 
-        return digits == 8;
+        if(digits == 8){
+            return true;
+        }
+
+        return false;
 
     }
 
     // Validate initial balance
-    private boolean isInitialBalanceValid() {
+    private boolean isInitialBalanceValid(double initialBalance) {
 
         return initialBalance > 0;
     }
