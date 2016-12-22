@@ -38,7 +38,7 @@
         <module>../Day16Web</module>
         <module>../Day17Web</module>
         <module>../Day18Web</module>
-        <module>../Day19WebJDBC</module>
+        <module>../Day20WebJDBC</module>
         <module>../Day19WebSessionManagement</module>
     </modules>
 

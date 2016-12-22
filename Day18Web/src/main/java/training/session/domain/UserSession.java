@@ -5,6 +5,7 @@ package training.session.domain;
  */
 public class UserSession {
     public final String userName;
+    //other information that I want to remember
 
     public UserSession(String userName1) {
         userName = userName1;

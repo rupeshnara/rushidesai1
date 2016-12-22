@@ -6,6 +6,13 @@ import java.util.logging.Logger;
  * Created by desair4 on 12/19/2016.
  */
 public class JdbcIntro {
+
+    /*
+     * Steps:
+     * 1. Connect to a data source, like a database
+     * 2. Send queries and update statements to the database
+     * 3. Retrieve and process the results received from the database in answer to your query
+     */
     public static void main(String[] args) {
 
         Connection con = null;
@@ -21,13 +28,11 @@ public class JdbcIntro {
             con = DriverManager.getConnection(url, user, password);
             st = con.createStatement();
             rs = st.executeQuery("SELECT VERSION()");
+            printResult(rs);
 
-            rs = st.executeQuery("SELECT VERSION()");
+            rs = st.executeQuery("SELECT * FROM USER");
+            printResult(rs);
 
-            if (rs.next()) {
-
-                System.out.println(rs.getString(1));
-            }
 
         } catch (SQLException ex) {
 
@@ -84,5 +89,12 @@ public class JdbcIntro {
                 lgr.log(Level.SEVERE, ex.getMessage(), ex);
             }
         }*/
+    }
+
+    private static void printResult(ResultSet rs) throws SQLException {
+        if (rs.next()) {
+
+            System.out.println(rs.getString(1));
+        }
     }
 }

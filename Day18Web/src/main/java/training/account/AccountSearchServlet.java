@@ -25,6 +25,9 @@ public class AccountSearchServlet extends HttpServlet {
         super.service(req, resp);
     }
 
+    //Say we authenticated User1 earlier
+    //User1.request1 -> how do I know 1. That this request is from user1. 2. How Do i Remember if User1 was authenticated earlier
+    //User2.request2 ->
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        System.out.println("AccountSearch");
@@ -34,6 +37,7 @@ public class AccountSearchServlet extends HttpServlet {
             resp.sendRedirect("/login/loginFailure");   //GET
             return;
         }
+        //Authentication needed here.
 
         RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/views/html/account/AccountSearch.html");   //we are straight going to a specific page
         rd.forward(req, resp);

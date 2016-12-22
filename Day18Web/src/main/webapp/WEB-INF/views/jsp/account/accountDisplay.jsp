@@ -16,7 +16,7 @@
 %>
 
 Account Number : <%= account.getAccountNumber() %><br/>
-Current Balance : <%= account.getInitialBalance() %><br/>
+Current Balance : <%= account.getCurrentBalance() %><br/>
 
 </body>
 </html>

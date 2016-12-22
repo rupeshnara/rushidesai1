@@ -8,7 +8,7 @@ import java.util.Random;
  * Created by desair4 on 12/4/2016.
  */
 public class BaseAccount {
-    protected double initialBalance;
+    protected double currentBalance;
     final protected Integer accountNumber;
     public static final int finalTemp = 1;
     public static final int finalTemp1; //This variable comes to life when class is loaded in jvm,  at that tiem construtor might not have been called
@@ -41,7 +41,7 @@ public class BaseAccount {
 
     // Constructor to be used when client provides only the initial balance
     // Validate initial balance and generate a random unique account number
-    public BaseAccount(double initialBalance, String accountHash1) {
+    public BaseAccount(double currentBalance, String accountHash1) {
         // Validation of initial balance
      /*   if (validateInitialBalance()) {
             throw new RuntimeException("Initial balance must be more than zero");
@@ -59,7 +59,7 @@ public class BaseAccount {
 
     // Constructor to be used when client provides both initial balance and account number
     // Validate the initial balance and check if account number has 8 digits
-    public BaseAccount(double initialBalance, Integer accountNumberClient, String accountHash1) {
+    public BaseAccount(double currentBalance, Integer accountNumberClient, String accountHash1) {
         // Validation of initial balance
       /*  if (validateInitialBalance()) {
             throw new RuntimeException("Initial balance must be more than zero");
@@ -108,7 +108,7 @@ public class BaseAccount {
 
     // Validate initial balance
     private boolean validateInitialBalance() {
-        return initialBalance <= 0;
+        return currentBalance <= 0;
     }
 
     private Integer generateAccountNumber() {
@@ -122,12 +122,12 @@ public class BaseAccount {
         return Base64.getEncoder().encodeToString(d.toString().getBytes());
     }
 
-    public double getInitialBalance() {
-        return initialBalance;
+    public double getCurrentBalance() {
+        return currentBalance;
     }
 
-    public void setInitialBalance(double initialBalance) {
-        this.initialBalance = initialBalance;
+    public void setCurrentBalance(double currentBalance) {
+        this.currentBalance = currentBalance;
     }
 
     public Integer getAccountNumber() {
@@ -149,7 +149,7 @@ public class BaseAccount {
     @Override
     public String toString() {
         return "BaseAccount{" +
-                "initialBalance=" + initialBalance +
+                "initialBalance=" + currentBalance +
                 ", accountNumber=" + accountNumber +
                 ", date=" + date +
                 '}';

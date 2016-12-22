@@ -34,10 +34,10 @@ public class SavingsAccount extends BaseAccount {
 
     public void debit(double amount) {
 
-        if (initialBalance < amount) {
+        if (currentBalance < amount) {
             System.out.println("Your balance is less than the requested amount");
         } else {
-            initialBalance = initialBalance - amount;
+            currentBalance = currentBalance - amount;
         }
     }
 
@@ -46,7 +46,7 @@ public class SavingsAccount extends BaseAccount {
     }
 
     public double calculateInterest() {
-        return initialBalance * interestRate / 100;
+        return currentBalance * interestRate / 100;
     }
 
 //    public double getInterestRate() {

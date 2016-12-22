@@ -33,8 +33,10 @@ public class ValidateUser {
                 //Check if this session is valid or not.
                 UserSession session = SessionBootstrap.SESSION_MAP.get(sesionID);
                 if (session != null) {
-                    //then user is valdiated
-                    return true;
+                    //then user is validated
+                    if (cookie.getValue().equals("true")) {
+                        return true;
+                    }
                 }
             }
         }

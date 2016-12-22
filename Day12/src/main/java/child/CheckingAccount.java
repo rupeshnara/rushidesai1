@@ -25,17 +25,17 @@ public class CheckingAccount extends BaseAccount {
 //            System.out.println("Please ensure the amount to be deposited is not negative"); //Not valid. we need to throw exceptions to prevent user from generating the client.
             throw new RuntimeException("Please ensure the amount to be deposited is not negative");
         } else {
-            initialBalance = initialBalance + amount;
+            currentBalance = currentBalance + amount;
         }
     }
 
     public void debit(double amount) {
-        if (initialBalance < amount + transactionFees) {
+        if (currentBalance < amount + transactionFees) {
 //            System.out.println("Your balance is less than the requested amount");  //Not valid. we need to throw exceptions let user know this method was unsuccessfull
             throw new RuntimeException("Your balance is less than the requested amount");
         } else {
 //            this.initialBalance = this.initialBalance - amount - transactionFees;
-            initialBalance = initialBalance - amount - transactionFees; //try to avoid 'this'
+            currentBalance = currentBalance - amount - transactionFees; //try to avoid 'this'
         }
     }
 
